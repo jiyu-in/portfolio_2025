@@ -1,42 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from 'styled-components';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import sampleVideo from "../assets/videos/sampleVideo.MOV"; 
-import { RotateText } from '../style/Keyframes';
+import { RotateText } from "../style/Keyframes";
+import { ReactComponent as NotionLogo } from "../assets/images/notion-logo.svg"; 
 
 const Root = styled.div`
+    position:fixed;
+    right: 24px;
+    bottom: 24px;
+`;
+
+const Relative = styled.div`
     position:relative;
 `;
 
-const Container = styled.div`
-    width: calc(100vw - 80px);
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    box-sizing: border-box;
-`;
-
-const TextBox = styled.div`
-    font-size: 2.25rem;
-    font-weight: 100;
-    text-align: center;
-    line-height: 1.45;
-    color:#fff;
-`;
-
 const Circle = styled.div`
-    width:240px;
-    height:240px;
+    width:84px;
+    height:84px;
     position:absolute;
     z-index:99;
-    right:calc(50% - 120px);
-    top:calc(45% - 120px);
+    right: 50%;
+    bottom: 50%;
     display:flex;
     align-items:center;
-    font-size: 0.813rem;
-    color:#c8fe26;//#ff8cac
+    font-size: 0.75rem;
+    color:#fff;//#ff8cac //#c8fe26;
     animation: ${RotateText} 20s linear infinite;
 `
 
@@ -44,7 +34,7 @@ const CircleText = styled.div`
     position:absolute;
     width:100%;
     height:100%;
-    left:120px;
+    left:42px;
 `;
 
 const VideoStyled = styled.video`
@@ -57,10 +47,25 @@ const VideoStyled = styled.video`
     z-index:99;
     right:calc(50% - 90px);
     top:calc(45% - 90px);
-    /* transform: translate(-50%, -50%); */
 `;
 
-function FirstPage() {
+const LinkStyled = styled.a`
+    width:48px;
+    height:48px;
+    position:absolute;
+    right: calc(50% + 18px);
+    top: calc(50% - 66px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    border-radius: 48px;
+    overflow: hidden;
+    z-index:99;
+`;
+
+
+function CircleComponent() {
     useEffect(() => {
         AOS.init(
         );
@@ -68,22 +73,15 @@ function FirstPage() {
     const items = [ "U", "I", "&", "U", "X", "","D", "E", "S", "I", "G", "N", "", "-", "", "P", "U", "B", "L", "I", "S", "H", "E", "R", "", "-","",];
 
     return (
-    <Root>
-        <Container>
-            <TextBox>
-                다양한 프로젝트<br/>
-                전문성과 기술<br/>
-                사용자 중심 혁신적인 웹 경험을 제공
-            </TextBox>
-        </Container>
-        <div>
+        <Root>
+            <Relative>
             <Circle>
                 {items.map((item, i) => {
                     return (
                         <CircleText key={i}
                             style={{
                                 transform: `rotate(${i * 13.5}deg)`,
-                                transformOrigin: "0 120px",
+                                transformOrigin: "0 42px",
                             }}
                         >
                             {item}
@@ -91,13 +89,14 @@ function FirstPage() {
                     )
                 })}
             </Circle>
-            <VideoStyled autoPlay loop muted playsInline>
+            {/* <VideoStyled autoPlay loop muted playsInline >
                 <source src={sampleVideo} type="video/mp4" />
                 브라우저가 비디오 태그를 지원하지 않습니다.
-            </VideoStyled>
-        </div>
-    </Root>
+            </VideoStyled> */}
+            <LinkStyled><NotionLogo/></LinkStyled>
+            </Relative>
+        </Root>
     );
 }
 
-export default FirstPage;
+export default CircleComponent;

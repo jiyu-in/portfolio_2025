@@ -5,7 +5,6 @@ import { ReactComponent as GithubLogo } from "../assets/images/github-logo.svg";
 import { FlexColumn } from '../style/Styled';
 import { TrackingInExpand } from '../style/Keyframes';
 
-
 const Wrap = styled.div`
     position:fixed;
     top:0;
@@ -44,6 +43,7 @@ const Social = styled.div`
 
 
 function Header() {
+
 return (
     <Wrap>
         <Title>JY<span>N</span>DP</Title>
