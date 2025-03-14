@@ -50,8 +50,8 @@ return (
         <FlexColumn>
             <Copyright>© 2025. All rights reserved</Copyright>
             <Social>
-                <a href="/" target="_blank"><GithubLogo/></a>
-                <a href="/" target="_blank"><NotionLogo/></a>
+                {/* <a href="/" target="_blank"><GithubLogo/></a> */}
+                {/* <a href="/" target="_blank"><NotionLogo/></a> */}
             </Social>
         </FlexColumn>
     </Wrap>

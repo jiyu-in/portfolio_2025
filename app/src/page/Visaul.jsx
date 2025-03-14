@@ -1,101 +1,131 @@
-import React, { useEffect, useRef } from "react";
-import styled from 'styled-components';
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import CircleComponent from "../components/CircleComponent";
-import { ReactComponent as Twist } from "../assets/images/Object-twist.svg";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const Root = styled.div`
-    position:relative;
+  position: relative;
 `;
 
 const Container = styled.div`
-    width: calc(100vw - 80px);
-    height: calc(100vh);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 `;
 
-const TextBox = styled(motion.div)`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 60rem;
-    height: calc(7rem* 5);
-    font-size: 6.25rem;
-    font-weight: 800;
-    line-height: 1.1;
-    color:#fff;
-    overflow: hidden;
-    z-index: 1;
+const TextBox = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60rem;
+  height: calc(6rem * 5);
+  font-size: 5.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  overflow: hidden;
+  z-index: 1;
 `;
 
-const MotionWrap = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-        & > span{
-            margin-top: 1rem;
-        }
-`;
-const Object = styled(motion.div)`
-    position: fixed;
-    bottom: 0;
-    left:20%;
-    z-index: 0;
+const Object = styled.div`
+  position: fixed;
+  bottom: 42px;
+  right: 0%;
+  padding-left: 13px;
+  z-index: 0;
+  transition: top 0.1s ease-out;
 `;
 
-const textArray = ["다양한 프로젝트", "전문성과 기술", "사용자 중심 웹 경험 제공"];
+const Connection = styled.div`
+  width: 48px;
+  height: 48px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  border-radius: 0%;
+  transition: all 0.3s ease;
+`;
 
-function Visaul() {
-    const textRef = useRef(null);
-    const objectRef = useRef(null);
+const textArray = ["디지털과 아날로그", "나는 그 사이를 연결한다."];
 
-    // 🎯 TextBox 스크롤 진행도
-    const { scrollYProgress: textScroll } = useScroll({
-        target: textRef,
-        offset: ["end 30%", "end 70%"] 
-    });
+function Visual() {
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollHeight, setScrollHeight] = useState(1); // 초기값을 1로 설정 (0 방지)
 
-    // 🎯 Object(Twist) 스크롤 진행도 (Text보다 더 늦게 반응)
-    const { scrollYProgress: objectScroll } = useScroll({
-        target: objectRef,
-        offset: ["start 10%", "start 70%"] 
-    });
+  useEffect(() => {
+    const updateScrollHeight = () => {
+      setScrollHeight(document.documentElement.scrollHeight - window.innerHeight);
+    };
 
-    // 🎯 TextBox 애니메이션 설정
-    const opacity = useTransform(textScroll, [1, 0.5, 0], [1, 1, 0]);
-    const y = useTransform(textScroll, [1, 0.5, 0], ["0%", "-50%", "-100%"]);
+    updateScrollHeight(); // 초기 마운트 시 값 설정
+    window.addEventListener("resize", updateScrollHeight); // 화면 크기 변경 시 업데이트
 
-    // 🎯 Object(Twist) 애니메이션 (조금 더 느리게 변화)
-    const scale = useTransform(objectScroll, [0, 0.5, 1], [1.5, 2, 3]);
-    const x = useTransform(textScroll, [1, 0.5, 0], ["0%", "-50%", "-100%"]);
+    return () => {
+      window.removeEventListener("resize", updateScrollHeight);
+    };
+  }, []);
 
-    return (
-        <Root>
-            <Container>
-                <TextBox ref={textRef}>
-                    {textArray.map((text, textIndex) => (
-                        <MotionWrap key={textIndex}>
-                            <motion.span
-                                style={{ opacity, y }}
-                                transition={{ type: "spring", stiffness: 50, damping: 15 }}
-                            >
-                                {text}
-                            </motion.span>
-                        </MotionWrap>
-                    ))}
-                </TextBox>
-            </Container>
-            {/* 🎯 Object(Twist)는 따로 ref 부여해서 개별적으로 스크롤 트리거 */}
-            <Object ref={objectRef} style={{ opacity, scale }}>
-                <Twist />
-            </Object>
-        </Root>
-    );
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // 전체 페이지의 스크롤 비율 (0 ~ 1 사이)
+  const scrollPercentage = Math.min(scrollY / scrollHeight, 1);
+
+  // 도형이 스크롤에 따라 왼쪽에서 오른쪽으로 이동
+  const objectX = Math.min(scrollY / 3, window.innerWidth);
+
+  // 도형이 50% 스크롤까지는 네모 유지, 이후 점점 원으로 변함
+  const borderRadius = scrollPercentage < 0.5 ? 0 : (scrollPercentage - 0.5) * 100;
+
+  // 배경색과 보더 색을 스크롤 위치에 따라 변경
+  let backgroundColor;
+  let borderColor;
+
+  if (scrollPercentage < 0.3) {
+    backgroundColor = `rgba(255, 255, 255, ${scrollPercentage * 3})`;
+    borderColor = `#fff`;
+  } else if (scrollPercentage >= 0.3 && scrollPercentage < 0.75) {
+    backgroundColor = `#fff`;
+    borderColor = `#fff`;
+  } else {
+    backgroundColor = `#c8fe26`;
+    borderColor = `transparent`;
+  }
+
+  return (
+    <Root>
+      <Container>
+        <TextBox>
+          {textArray.map((text, textIndex) => (
+            <div key={textIndex}>{text}</div>
+          ))}
+        </TextBox>
+      </Container>
+
+      {/* 🎯 Object 위치 변경: 스크롤에 따라 도형이 왼쪽에서 오른쪽으로 이동 */}
+      <Object style={{ left: objectX }}>
+        <Connection
+          style={{
+            borderRadius: `${borderRadius}%`,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
+            borderWidth: borderColor === "transparent" ? "0px" : "1px",
+          }}
+        />
+      </Object>
+    </Root>
+  );
 }
 
-export default Visaul;
+export default Visual;

@@ -22,6 +22,12 @@ function App() {
     </div>
       )}
     </AnimatePresence>
+    // <div className="App">
+    // <Cursor/>
+    // <Header/>
+    // <Main />
+    // <CircleComponent/>
+// </div>
       
   );
 }

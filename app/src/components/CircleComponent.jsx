@@ -58,7 +58,7 @@ const LinkStyled = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000;
+    /* background-color: #000; */
     border-radius: 48px;
     overflow: hidden;
     z-index:99;
@@ -93,7 +93,7 @@ function CircleComponent() {
                 <source src={sampleVideo} type="video/mp4" />
                 브라우저가 비디오 태그를 지원하지 않습니다.
             </VideoStyled> */}
-            <LinkStyled><NotionLogo/></LinkStyled>
+            <LinkStyled href="https://sumptuous-amaryllis-ad1.notion.site/UI-UX-Designer-Web-publisher-1957cdfc3fd0802ba4abf011c0a587df?pvs=4" target="_blank"><NotionLogo/></LinkStyled>
             </Relative>
         </Root>
     );

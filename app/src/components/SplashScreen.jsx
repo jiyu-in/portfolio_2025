@@ -8,27 +8,28 @@ const Screen = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
+  background-color: #333;
   overflow: hidden;
 `;
 
 const Slogan = styled.div`
   font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
+  font-weight: 100;
+  color: #ffffffde;
   white-space: nowrap;
+  padding-bottom:16px;
 `;
 
 const ProgressBarContainer = styled.div`
   width: 100%;
   height: 3px;
-  background-color: #fff;
+  background-color: #333;
   overflow: hidden;
 `;
 
 const ProgressBar = styled.div`
   height: 100%;
-  background: #333;
+  background: #c8fe26;
   /* background: linear-gradient(90deg, rgba(200,254,38,1) 0%, rgba(39,146,192,1) 100%); */
   width: ${(props) => props.width}%;
   transition: width 0.2s ease-in-out;
