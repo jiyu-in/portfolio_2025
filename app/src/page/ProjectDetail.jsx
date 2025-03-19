@@ -1,18 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FlexCenter } from '../style/Styled';
+import { motion, useScroll, useTransform } from "framer-motion";
 
-
-const Root = styled.div`
+const Root = styled(motion.div)`
     position: relative;
     width: 100%;
     height: 100%;
-    filter: brightness(0.5);
-    transition: all 0.5s ease;
     overflow:hidden;
+    transition: all 0.5s ease;
+    &>img{
+        display: none;
+        transform: scale(1);
+        filter: brightness(0.3);
+    }
     &:hover{
         filter: blur(0px) brightness(1);
         &>img{
+            display: block;
             transform: scale(1.2);
             transition: all 2s ease;
         }
@@ -42,6 +47,8 @@ const Title = styled.div`
     font-size:1.5rem;
     font-weight: bold;
     margin:0.5rem 0 0.6rem;
+    text-align: center;
+    word-break: keep-all;
 `;
 const DateText = styled.div``; 
 const Description = styled.div`
@@ -82,9 +89,12 @@ const VideoStyled = styled.video`
 `;
 
 
-function ProjectList({ title, date, skills, des, category, img, video }) {
+function ProjectList({ title, date, skills, des, category, img, video, opacity, translateX }) {
     return (
-    <Root>
+    <Root 
+        style={{ opacity, translateX }}
+        transition={{ type: "object", stiffness: 50, damping: 15 }}
+    >
         <BgImage src={img} alt={title} />
         {/* <VideoStyled autoPlay loop muted playsInline >
                 <source src={video} type="video/mp4" />

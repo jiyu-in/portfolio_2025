@@ -45,7 +45,7 @@ const Slogan = styled.div`
 
 const SubText = styled.p`
   color:#858585;
-  margin:6rem 0 0 1rem;
+  margin:3rem 0 0 1rem;
 `;
 
 
@@ -54,6 +54,7 @@ const LottieStyledGlobal = styled(Lottie)`
   left: 50%;
   top: 50%;
   width: 65vw;
+  height: 95vh;
   opacity: 0.2;
   transform: translate(-50%, -50%);
   & path {

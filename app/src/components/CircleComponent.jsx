@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import sampleVideo from "../assets/videos/sampleVideo.MOV"; 
 import { RotateText } from "../style/Keyframes";
-import { ReactComponent as NotionLogo } from "../assets/images/notion-logo-b.svg"; 
+import { ReactComponent as MailIcon } from "../assets/images/MailIcon.svg"; 
 
 const Root = styled.div`
     position:fixed;
@@ -70,7 +70,9 @@ function CircleComponent() {
         AOS.init(
         );
     },[])
-    const items = [ "U", "I", "&", "U", "X", "","D", "E", "S", "I", "G", "N", "", "-", "", "P", "U", "B", "L", "I", "S", "H", "E", "R", "", "-","",];
+    // const items = [ "U", "I", "&", "U", "X", "","D", "E", "S", "I", "G", "N", "", "-", "", "P", "U", "B", "L", "I", "S", "H", "E", "R", "", "-","",];
+    const items = [ "좋", "은", "", "인", "연", "은", "","한", "통", "의", "","메", "일", "에", "서","", "시", "작", "됩", "니", "다", ".","","",];
+
 
     return (
         <Root>
@@ -80,7 +82,7 @@ function CircleComponent() {
                     return (
                         <CircleText key={i}
                             style={{
-                                transform: `rotate(${i * 13.5}deg)`,
+                                transform: `rotate(${i * 16.5}deg)`,
                                 transformOrigin: "0 42px",
                             }}
                         >
@@ -93,7 +95,8 @@ function CircleComponent() {
                 <source src={sampleVideo} type="video/mp4" />
                 브라우저가 비디오 태그를 지원하지 않습니다.
             </VideoStyled> */}
-            <LinkStyled href="https://sumptuous-amaryllis-ad1.notion.site/UI-UX-Designer-Web-publisher-1957cdfc3fd0802ba4abf011c0a587df?pvs=4" target="_blank"><NotionLogo/></LinkStyled>
+            {/* <LinkStyled href="https://sumptuous-amaryllis-ad1.notion.site/UI-UX-Designer-Web-publisher-1957cdfc3fd0802ba4abf011c0a587df?pvs=4" target="_blank"><NotionLogo/></LinkStyled> */}
+            <LinkStyled href="mailto:jyin2205@naver.com" target="_blank"><MailIcon/></LinkStyled>
             </Relative>
         </Root>
     );

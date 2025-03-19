@@ -2,9 +2,9 @@ import React from "react";
 import '../style/style.scss';
 import styled from 'styled-components';
 import Visaul from "./Visaul";
-import About from "./About";
+// import Contact from "./Contact";
 import Portfolio from "./Portfolio";
-import Projects from "./Projects";
+import About from "./About";
 
 const Root = styled.div`
   position:relative;
@@ -15,6 +15,7 @@ const Root = styled.div`
 const Section = styled.div`
   position: relative;
   min-height: 101vh;
+  overflow-x: hidden;
 `;
 
 

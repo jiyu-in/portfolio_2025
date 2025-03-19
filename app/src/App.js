@@ -10,27 +10,27 @@ import Footer from './components/Footer';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   return (
-    // <AnimatePresence>
-    //   {isLoading ? (
-    //     <SplashScreen onFinish={() => setIsLoading(false)} />
-    //   ) : (
-    //     <div className="App">
-    //     <Cursor/>
-    //     <Header/>
-    //     <Main />
-    //     <Footer/>
-    //     <CircleComponent/>
-    // </div>
-    //   )}
-    // </AnimatePresence>
+    <AnimatePresence>
+      {isLoading ? (
+        <SplashScreen onFinish={() => setIsLoading(false)} />
+      ) : (
+        <div className="App">
+        <Cursor/>
+        <Header/>
+        <Main />
+        <Footer/>
+        <CircleComponent/>
+    </div>
+      )}
+    </AnimatePresence>
 
-    <div className="App">
-      <Cursor/>
-      <Header/>
-      <Main />
-      {/* <Footer/> */}
-      <CircleComponent/>
-    </div>  
+    // <div className="App">
+    //   <Cursor/>
+    //   <Header/>
+    //   <Main />
+    //   {/* <Footer/> */}
+    //   <CircleComponent/>
+    // </div>  
   );
 }
 
