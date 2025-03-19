@@ -5,30 +5,32 @@ import Main from './page/Main';
 import Cursor from './components/Cursor';
 import Header from './components/Header';
 import CircleComponent from "./components/CircleComponent";
-
+import Footer from './components/Footer';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <AnimatePresence>
-      {isLoading ? (
-        <SplashScreen onFinish={() => setIsLoading(false)} />
-      ) : (
-        <div className="App">
-        <Cursor/>
-        <Header/>
-        <Main />
-        <CircleComponent/>
-    </div>
-      )}
-    </AnimatePresence>
-    // <div className="App">
-    // <Cursor/>
-    // <Header/>
-    // <Main />
-    // <CircleComponent/>
-// </div>
-      
+    // <AnimatePresence>
+    //   {isLoading ? (
+    //     <SplashScreen onFinish={() => setIsLoading(false)} />
+    //   ) : (
+    //     <div className="App">
+    //     <Cursor/>
+    //     <Header/>
+    //     <Main />
+    //     <Footer/>
+    //     <CircleComponent/>
+    // </div>
+    //   )}
+    // </AnimatePresence>
+
+    <div className="App">
+      <Cursor/>
+      <Header/>
+      <Main />
+      {/* <Footer/> */}
+      <CircleComponent/>
+    </div>  
   );
 }
 

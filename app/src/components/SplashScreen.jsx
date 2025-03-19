@@ -13,6 +13,7 @@ const Screen = styled.div`
 `;
 
 const Slogan = styled.div`
+  font-family: "Iropke Batang",serif;
   font-size: 2.5rem;
   font-weight: 100;
   color: #ffffffde;

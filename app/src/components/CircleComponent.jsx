@@ -4,12 +4,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import sampleVideo from "../assets/videos/sampleVideo.MOV"; 
 import { RotateText } from "../style/Keyframes";
-import { ReactComponent as NotionLogo } from "../assets/images/notion-logo.svg"; 
+import { ReactComponent as NotionLogo } from "../assets/images/notion-logo-b.svg"; 
 
 const Root = styled.div`
     position:fixed;
-    right: 24px;
-    bottom: 24px;
+    right: 10px;
+    bottom: 16px;
 `;
 
 const Relative = styled.div`
@@ -58,7 +58,7 @@ const LinkStyled = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: #000; */
+    background-color: #ffffff66;
     border-radius: 48px;
     overflow: hidden;
     z-index:99;

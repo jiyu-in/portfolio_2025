@@ -21,3 +21,20 @@ export const RotateText = keyframes`
         transform: rotate(360deg);
     }
 `;
+
+
+export const glitch = keyframes`
+    0% { text-shadow: 2px 2px 0 #E0388C, -2px -2px 0 #c8fe26; }
+    20% { text-shadow: -2px -2px 0 #E0388C, 2px 2px 0 #c8fe26; }
+    40% { text-shadow: 2px -2px 0 #E0388C, -2px 2px 0 #c8fe26; }
+    60% { text-shadow: -2px 2px 0 #E0388C, 2px -2px 0 #c8fe26; }
+    80% { text-shadow: 2px 2px 0 #E0388C, -2px -2px 0 #c8fe26; }
+    100% { text-shadow: none; }
+`;
+
+
+export const floating = keyframes`
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
+`;
