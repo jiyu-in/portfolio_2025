@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/portfolio_2025/static/css/main.6dc4fff6.css",
-    "main.js": "/portfolio_2025/static/js/main.0cf15cdb.js",
+    "main.css": "/portfolio_2025/static/css/main.8aab2922.css",
+    "main.js": "/portfolio_2025/static/js/main.921a6d1e.js",
+    "static/media/IropkeBatangM.woff": "/portfolio_2025/static/media/IropkeBatangM.950fceb73642b113da89.woff",
     "static/media/notion-logo.svg": "/portfolio_2025/static/media/notion-logo.1d52d79a6b37cfcf150c890280ff69cc.svg",
     "static/media/github-logo.svg": "/portfolio_2025/static/media/github-logo.b799361eb5f5597c0fb585e2b689f4c9.svg",
     "static/media/LogoDP.svg": "/portfolio_2025/static/media/LogoDP.4f2e5c0c96d1356ed426c0c3089437db.svg",
@@ -9,11 +10,11 @@
     "static/media/MailIcon.svg": "/portfolio_2025/static/media/MailIcon.937d44eb3b2486972148717bdd1cfc72.svg",
     "static/media/ArrowLeftIcon.svg": "/portfolio_2025/static/media/ArrowLeftIcon.ed399dc9dda2ab68cb6dfb774b6804ad.svg",
     "static/media/ArrowRightIcon.svg": "/portfolio_2025/static/media/ArrowRightIcon.0961e3007de90bb51acb633f47a60cab.svg",
-    "main.6dc4fff6.css.map": "/portfolio_2025/static/css/main.6dc4fff6.css.map",
-    "main.0cf15cdb.js.map": "/portfolio_2025/static/js/main.0cf15cdb.js.map"
+    "main.8aab2922.css.map": "/portfolio_2025/static/css/main.8aab2922.css.map",
+    "main.921a6d1e.js.map": "/portfolio_2025/static/js/main.921a6d1e.js.map"
   },
   "entrypoints": [
-    "static/css/main.6dc4fff6.css",
-    "static/js/main.0cf15cdb.js"
+    "static/css/main.8aab2922.css",
+    "static/js/main.921a6d1e.js"
   ]
 }
