@@ -7,7 +7,7 @@ import About from "./About";
 
 const Root = styled.div`
   position:relative;
-  background-color: #333;
+  background-color: #171717;
   color:#fff;
 `;
 
