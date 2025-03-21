@@ -1,4 +1,5 @@
 {
+  "homepage": "https://jiyu-in.github.io/portfolio",
   "name": "app",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +21,6 @@
     "styled-components": "^6.1.15",
     "swiper": "^11.2.5"
   },
-  "homepage": "https://jiyu-in.github.io/portfolio",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
