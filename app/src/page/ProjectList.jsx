@@ -14,6 +14,9 @@ const Root = styled(motion.div)`
         display: none;
         transform: scale(1);
         filter: brightness(0.3);
+        /* @media (max-width: 640px) {
+            display: none;
+        } */
     }
     &:hover, &:focus{
         filter: blur(0px) brightness(1);
@@ -112,7 +115,7 @@ function ProjectList({ title, date, skills, des, category, img, url, opacity, tr
         transition={{ type: "object", stiffness: 50, damping: 15 }}
         onClick={() => handleClick(url)}
     >
-        <BgImage src={img} alt={title} />
+        <BgImage src={process.env.PUBLIC_URL + img} alt={title} />
         <Wrap>
             <Category>
             {category.map((item, index) => (
