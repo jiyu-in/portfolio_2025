@@ -20,6 +20,7 @@
     "styled-components": "^6.1.15",
     "swiper": "^11.2.5"
   },
+  "homepage": "https://jiyu-in.github.io/portfolio",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -46,7 +47,7 @@
       "last 1 safari version"
     ]
   },
-  {
-    "homepage": "https://jiyu-in.github.io/portfolio"
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
