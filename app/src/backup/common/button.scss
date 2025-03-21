@@ -1,0 +1,63 @@
+// @import 'color.scss';
+
+
+// 버튼 기본 스타일
+$btn-padding-small: 5px 10px;
+$btn-padding-medium: 10px 20px;
+$btn-padding-large: 15px 30px;
+
+$btn-font-size-small: 12px;
+$btn-font-size-medium: 16px;
+$btn-font-size-large: 20px;
+
+
+.btn {
+    background-color: $main;
+    color: $btn-white;
+    padding: $btn-padding-medium;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: $btn-font-size-medium;
+    transition: background-color 0.3s;
+    
+    &-blue {
+        background-color: $btn-blue;
+        color: $btn-white;
+    }
+
+    &-red {
+        background-color: $btn-red;
+        color: $btn-white;
+    }
+
+    &-green {
+        background-color: $btn-green;
+        color: $btn-white;
+    }
+
+    &-yellow {
+        background-color: $btn-yellow;
+        color: $btn-black;
+    }
+
+    &-small {
+        font-size: $btn-font-size-small;
+        padding: $btn-padding-small;
+    }
+
+    &-medium {
+        font-size: $btn-font-size-medium;
+        padding: $btn-padding-medium;
+    }
+
+    &-large {
+        font-size: $btn-font-size-large;
+        padding: $btn-padding-large;
+    }
+
+  // 호버 효과
+    &:hover {
+        opacity: 0.8;
+    }
+}
