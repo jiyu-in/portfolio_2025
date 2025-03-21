@@ -1,122 +1,60 @@
-import React from 'react';
+
+import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FlexCenter } from '../style/Styled';
-import { motion, useScroll, useTransform } from "framer-motion";
+import data from '../data/data.json'; 
 
-const Root = styled(motion.div)`
-    position: relative;
+const Root = styled.div`
     width: 100%;
     height: 100%;
-    overflow:hidden;
-    transition: all 0.5s ease;
-    &>img{
-        display: none;
-        transform: scale(1);
-        filter: brightness(0.3);
-    }
-    &:hover{
-        filter: blur(0px) brightness(1);
-        &>img{
-            display: block;
-            transform: scale(1.2);
-            transition: all 2s ease;
-        }
-    }
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
 `;
-const Wrap = styled(FlexCenter)`
-    position: relative;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding:0 2.5rem;
-    margin:0 auto;
-`;
-
-const Category = styled.div`
-    & span{
-        margin:0 4px;
-        /* padding:2px 4px; */
-        font-size: 0.75rem;
-        font-weight: 500;
-        color: #c8fe26;
-        border-bottom:1px solid #c8fe26;
-    }
-`;
-const Title = styled.div`
-    font-family: "Iropke Batang",serif;
-    font-size:1.5rem;
-    font-weight: bold;
-    margin:0.5rem 0 0.6rem;
-    text-align: center;
-    word-break: keep-all;
-`;
+const Contents = styled.div``; 
+const BgImage = styled.img``; 
+const Wrap = styled.div``; 
+const Category = styled.div``; 
+const Title = styled.div``; 
 const DateText = styled.div``; 
-const Description = styled.div`
-    font-size:0.875rem;
-`;
-const Skills = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    & span{
-        font-size:0.938rem;
-        font-weight: 200;
-        margin: 0 6px;
-        color: #dbdbdb;
-        mix-blend-mode: difference; 
-    }
-`;
-const BgImage = styled.img`
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(0.7);
-`;
+const Skills = styled.div``; 
+const Description = styled.div``; 
 
-const VideoStyled = styled.video`
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(0.5);
-`;
-
-
-function ProjectList({ title, date, skills, des, category, img, video, opacity, translateX }) {
+function ProjectDetail(){
+    
+    const [projects, setProjects] = useState([]);
+    useEffect(() => {
+        setProjects(data); // JSON 데이터를 state에 저장
+    }, []);
+    
     return (
-    <Root 
-        style={{ opacity, translateX }}
-        transition={{ type: "object", stiffness: 50, damping: 15 }}
-    >
-        <BgImage src={img} alt={title} />
-        {/* <VideoStyled autoPlay loop muted playsInline >
-                <source src={video} type="video/mp4" />
-                브라우저가 비디오 태그를 지원하지 않습니다.
-        </VideoStyled>  */}
-        <Wrap>
-            <Category>
-            {category.map((item, index) => (
-                <span key={index}>{item}</span>
-            ))}  
-            </Category>
-            <Title>{title}</Title>
-            {/* <DateText>{date}</DateText> */}
-            <Skills>
-                {skills.map((skill, index) => (
-                <span key={index}>#{skill}</span>
-                ))}
-            </Skills>
-            <Description>{des}</Description>
-        </Wrap>
-    </Root>
+        <Root>
+    {projects.map((item) => (
+        <Contents key={item.id}> {/* item.id가 고유한 값이라면 key로 사용 */}
+            <BgImage src={item.img} alt={item.title} />
+            <Wrap>
+                <Category>
+                    {item.category.map((category, index) => (
+                        <span key={`${category}-${index}`}> {/* category와 index를 결합하여 고유한 key 생성 */}
+                            {category}
+                        </span>
+                    ))}  
+                </Category>
+                <Title>{item.title}</Title>
+                <DateText>{item.date}</DateText>
+                <Skills>
+                    {item.skills.map((skill, index) => (
+                        <span key={`${skill}-${index}`}> {/* skill과 index를 결합하여 고유한 key 생성 */}
+                            #{skill}
+                        </span>
+                    ))}
+                </Skills>
+                <Description>{item.des}</Description>
+            </Wrap>
+        </Contents>
+    ))}
+</Root>
+
+
     );
 }
 
-export default ProjectList;
+export default ProjectDetail;

@@ -10,6 +10,7 @@
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
+    background: #333;
 }
 
 ::-webkit-scrollbar-track {
@@ -90,5 +91,12 @@ html {
         height: 5px;
         background: #c8fe26;
         transform: scaleX(0);
+    }
+}
+
+
+@media (max-width: 640px) {
+    .App{
+        
     }
 }

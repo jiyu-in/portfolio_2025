@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from "framer-motion";
 
 export const Flex = styled.div`
     display: flex;
@@ -60,4 +61,30 @@ export const Cuadrado = styled.div`
 
 export const Ifont = styled.div`
     font-family: "Iropke Batang",serif;
+`;
+
+export const TitleBox = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    @media (max-width: 640px) {
+        font-size: 2rem;
+    }
+`;
+
+export const TitleText = styled(motion.span)`
+    font-family: "Iropke Batang",serif;
+`;
+
+export const SubText = styled(motion.span)`
+    font-size: 1rem;
+    font-weight: 300;
+    color:#858585;
+    margin-top: 1rem;
+    @media (max-width: 640px) {
+        font-size: 0.813rem;
+    }
 `;

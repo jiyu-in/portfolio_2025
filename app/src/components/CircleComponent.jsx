@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import styled from 'styled-components';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import sampleVideo from "../assets/videos/sampleVideo.MOV"; 
 import { RotateText } from "../style/Keyframes";
 import { ReactComponent as MailIcon } from "../assets/images/MailIcon.svg"; 
 

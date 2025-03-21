@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import styled, { keyframes, css } from "styled-components";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import styled from "styled-components";
 import Lottie from "lottie-react";
 import LottieGlobal from "../assets/lottie/AnimationObject.json";
 
@@ -21,13 +21,6 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const textArray = [
-  { text: "디지털", applyEffect: true },
-  { text: "과", applyEffect: false },
-  { text: "아날로그", applyEffect: true },
-  { text: "나는 그 사이를 연결한다", applyEffect: false }
-];
-
 
 const Wrap = styled(motion.div)`
   position: relative;
@@ -41,11 +34,18 @@ const Slogan = styled.div`
   color: #fff;
   text-shadow: 1px 4px 0px #000000;
   transition: text-shadow 0.5s ease;
+  @media (max-width: 640px) {
+    font-size: 2rem;
+  }
 `;
 
 const SubText = styled.p`
   color:#858585;
   margin:3rem 0 0 1rem;
+  word-break: keep-all;
+  @media (max-width: 640px) {
+    margin:1rem 0 0 1rem;
+  }
 `;
 
 
@@ -72,13 +72,10 @@ function Visual() {
         <Wrap
           initial={{filter:'blur(12px)' }}
           animate={{ filter:'blur(0px)'}}
-          transition={{ ease: "easeIn", duration: 2,}}
+          transition={{ ease: "easeIn", duration: 1.5,}}
         >
           <Slogan>디지털과 아날로그 <br/> 나는 그 사이를 연결한다.</Slogan>
           <SubText>: 디지털과 아날로그의 장점을 결합하여 새로운 가치를 창출하는 역할을 합니다.</SubText>
-          {/* {Array.from({ length: 8 }).map((_, index) => (
-            <Cuadrado key={index} className={`cuad${index+1}`} />
-          ))} */}
         </Wrap>
         
       </Container>

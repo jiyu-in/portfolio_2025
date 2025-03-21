@@ -10,6 +10,9 @@ const Root = styled.div`
   position:relative;
   background-color: #333;
   color:#fff;
+  @media (max-width: 640px) {
+    padding:0 32px;
+  }
 `;
 
 const Section = styled.div`

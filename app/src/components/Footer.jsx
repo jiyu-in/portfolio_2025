@@ -9,8 +9,11 @@ const Root = styled.div`
 const Object = styled.div`
     position: fixed;
     bottom: 34px;
-    left:0;
+    left: 0;
     transition: left 0.1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Connection = styled.div`
@@ -20,11 +23,18 @@ const Connection = styled.div`
     background-color: transparent;
     border-radius: 0%;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    color: #333;
 `;
 
 function Footer() {
     const [scrollY, setScrollY] = useState(0);
-    const [scrollHeight, setScrollHeight] = useState(1); // 0 방지를 위해 초기값 1
+    const [scrollHeight, setScrollHeight] = useState(1);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -53,30 +63,34 @@ function Footer() {
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
-    // 전체 페이지 스크롤 비율 (0 ~ 1)
     const scrollPercentage = Math.min(scrollY / scrollHeight, 1);
+    const scrollValue = Math.round(scrollPercentage * 100); 
+    const scrollText = scrollPercentage < 0.4
+    ? "Start" 
+    : scrollPercentage < 0.7
+    ? "Portfolio"
+    : "About"; 
 
-    // <Connection> 요소의 너비와 <Object>의 padding-left
-    const connectionWidth = 48; // px
-    const objectPaddingLeft = 34; // px
-    // 최대 이동 거리: 창의 너비 - (paddingLeft + Connection의 width)
-    const maxLeft = windowWidth - (connectionWidth + objectPaddingLeft);
+    const textColor = scrollPercentage < 0.4 
+    ? "#fff" 
+    : scrollPercentage < 0.7
+    ? "#333" 
+    : scrollPercentage < 0.97 
+    ? "#333" 
+    : "transparent"; 
 
-    // 스크롤 비율에 따라 이동 (최대 maxLeft까지)
-    const objectX = maxLeft * scrollPercentage;
 
-    // 스크롤 비율에 따라 borderRadius 계산 (50% 이전은 네모, 이후 점점 원으로 변화)
+    const connectionWidth = 48;
+    const objectPaddingLeft = 34;
+    const maxLeft = windowWidth - (connectionWidth + objectPaddingLeft) - 24; // 🔹 끝나는 지점 -20px 적용
+    const objectX = maxLeft * scrollPercentage + 24; // 🔹 시작 지점 +20px 적용
     const borderRadius = scrollPercentage < 0.5 ? 0 : (scrollPercentage - 0.5) * 100;
 
-
-
-    // 스크롤 위치에 따라 배경색과 보더 색 변경
     let backgroundColor;
     let borderColor;
 
@@ -93,15 +107,18 @@ function Footer() {
 
     return (
         <Root>
-            <Object style={{ left: objectX }}>
+            <Object style={{ left: objectX}}>
                 <Connection
                     style={{
                         borderRadius: `${borderRadius}%`,
                         backgroundColor: backgroundColor,
                         borderColor: borderColor,
                         borderWidth: borderColor === "transparent" ? "0px" : "1px",
+                        color: textColor,  // ✅ 글자 색 변경
                     }}
-                />
+                >
+                    {scrollText}
+                </Connection>
             </Object>
         </Root>
     );

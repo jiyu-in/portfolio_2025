@@ -1,108 +1,134 @@
-import React, { useEffect, useState } from "react";
-import styled, {keyframes} from 'styled-components';
-import Project from "./Project";
-import { animate } from "framer-motion";
+import React, {useState} from 'react';
+import styled from 'styled-components';
+import { FlexCenter } from '../style/Styled.jsx';
+import { motion, useScroll, useTransform } from "framer-motion";
 
 
-const expandContract = keyframes`
-    0% { transform: rotate(-10deg) scaleX(0); }
-    25% { transform: rotate(0deg) scaleX(1); }
-    50% { transform: rotate(10deg) scaleX(0) }
-    75% { transform: rotate(0deg) scaleX(1); }
-    100% { transform: rotate(-10deg) scaleX(0) }
-`;
-
-const pendulumSwing = keyframes`
-    0% { transform: rotate(-10deg); }
-    50% { transform: rotate(10deg); }
-    100% { transform: rotate(-10deg); }
-`;
-
-const blur = keyframes`
-    0% { filter: blur(4px); }
-    100% { filter: blur(0); }
-`;
-
-const BackgroundBox = styled.div`
-    position: fixed;
-    background-color: #c8fe26;
-    transition: all 0.3s ease;
-    color:#fff;
-    /* margin-top: 60px; */
-    /* 
-    backdrop-filter: blur(4px);
-    transform-origin: bottom center;
-    animation: ${expandContract} 15s infinite linear; */
-    transform-origin: center center;
-    animation: ${blur} 2s linear; 
-`;
-
-
-function ProjectList() {
-    const [scrollY, setScrollY] = useState(0);
-    const [sectionHeight, setSectionHeight] = useState(window.innerHeight * 0.8);
-    
-    useEffect(() => {
-        const handleResize = () => setSectionHeight(window.innerHeight * 0.8);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    
-    useEffect(() => {
-        const handleScroll = () => setScrollY(window.scrollY);
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-    
-    let barStyle = {};
-    let showContent = false; // 내용 표시 여부
-
-    if (scrollY < sectionHeight) {
-        console.log("작은 크기 상태 유지");
-            barStyle = {
-                // top: "calc(25% + 82px)",
-                // left: "calc(50% - 32px)",
-                bottom: "calc(45% - 4px)",
-                left: "calc(50%)",
-                width: "64px",
-                height: "3px",
-                transform: "translateX(-50%)",
-                overflow: "hidden",
-            }
-        } else if (scrollY < sectionHeight * 1.5) {
-            console.log("최대 크기!");
-            barStyle = {
-                top: "50%",
-                left: "50%",
-                width: "calc(100vw - 64px)",
-                height: "calc(100vh - 240px)",
-                background:"transparent",
-                transform: "translate(-50%, -50%) scale(1)",
-                overflow: "auto",
-                animation:"none",
-                zIndex:"2",
-            };
-            showContent = true; 
-        } else {
-            barStyle = {
-            top: "calc(25% + 82px)",
-            left: "calc(50% - 32px)",
-            width: "64px",
-            height: "3px",
-            transform: "translate(-50%, -50%) scale(0)",
-            opacity:"0",
-            overflow: "hidden",
-        };
+const Root = styled(motion.div)`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+    transition: all 0.5s ease;
+    &>img{
+        display: none;
+        transform: scale(1);
+        filter: brightness(0.3);
     }
+    &:hover, &:focus{
+        filter: blur(0px) brightness(1);
+        &>img{
+            display: block;
+            transform: scale(1.2);
+            transition: all 2s ease;
+        }
+    }
+`;
+const Wrap = styled(FlexCenter)`
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding:0 2.5rem;
+    margin:0 auto;
+    @media (max-width: 640px) {
+        padding:0 1em;
+    }
+`;
 
+const Category = styled.div`
+    & span{
+        margin:0 4px;
+        /* padding:2px 4px; */
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #c8fe26;
+        border-bottom:1px solid #c8fe26;
+    }
+`;
+const Title = styled.div`
+    font-family: "Iropke Batang",serif;
+    font-size:1.5rem;
+    font-weight: bold;
+    margin:0.5rem 0 0.6rem;
+    text-align: center;
+    word-break: keep-all;
+    @media (max-width: 640px) {
+        font-size: 1.125rem;
+    }
+`;
+const DateText = styled.div``; 
+const Description = styled.div`
+    font-size:0.875rem;
+    color:#ffffff66;
+    @media (max-width: 640px) {
+        display: none;
+    }
+`;
+const Skills = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    & span{
+        font-size:0.938rem;
+        font-weight: 200;
+        margin: 0 6px;
+        color: #dbdbdb;
+        mix-blend-mode: difference; 
+    }
+`;
+const BgImage = styled.img`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7);
+`;
+
+const VideoStyled = styled.video`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.5);
+`;
+
+
+function ProjectList({ title, date, skills, des, category, img, url, opacity, translateX }) {
+
+    const handleClick = (url) => {
+        window.open(url, '_blank');
+    };
+    
     return (
-        <>
-        <BackgroundBox style={barStyle}>
-            {showContent && (
-                <Project/>
-            )}
-        </BackgroundBox>
-        </>
+    <Root 
+        style={{ opacity, translateX }}
+        transition={{ type: "object", stiffness: 50, damping: 15 }}
+        onClick={() => handleClick(url)}
+    >
+        <BgImage src={img} alt={title} />
+        <Wrap>
+            <Category>
+            {category.map((item, index) => (
+                <span key={index}>{item}</span>
+            ))}  
+            </Category>
+            <Title>{title}</Title>
+            {/* <DateText>{date}</DateText> */}
+            <Skills>
+                {skills.map((skill, index) => (
+                <span key={index}>#{skill}</span>
+                ))}
+            </Skills>
+            <Description>{des}</Description>
+        </Wrap>
+    </Root>
     );
 }
 

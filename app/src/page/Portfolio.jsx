@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
-import { FlexCenter, GridBackground } from '../style/Styled';
+import { FlexCenter, GridBackground, TitleBox, TitleText, SubText } from '../style/Styled';
 import ProjectList from "./Project";
-
 
 const Root = styled.div`
     height: 100vh;
@@ -15,26 +14,6 @@ const Root = styled.div`
 
 const Wrap = styled(FlexCenter)`
     flex-direction: column;
-`;
-
-const TitleBox = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-`;
-
-const TitleText = styled(motion.span)`
-  font-family: "Iropke Batang",serif;
-`;
-
-const SubText = styled(motion.span)`
-  font-size: 1rem;
-  font-weight: 300;
-  color:#858585;
-  margin-top: 1rem;
 `;
 
 

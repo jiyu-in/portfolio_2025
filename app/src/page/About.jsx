@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import styled, {keyframes} from 'styled-components';
-import { FlexCenter } from '../style/Styled';
+import { useRef, useEffect } from "react";
+import styled from 'styled-components';
+import { FlexCenter, TitleBox, TitleText, SubText } from '../style/Styled';
 import Lottie from "lottie-react";
 import LottieTriangle from "../assets/lottie/AnimationTriangle.json"; 
 import { ReactComponent as NotionLogo } from "../assets/images/notion-logo.svg"; 
@@ -23,26 +23,10 @@ const MaskBg = styled.div`
     z-index: 0;
 `;
 
-const TitleBox = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: bold;
+const TitleBoxIndex = styled(TitleBox)`
     z-index: 1;
 `;
 
-const TitleText = styled(motion.span)`
-    font-family: "Iropke Batang",serif;
-`;
-
-const SubText = styled(motion.span)`
-    font-size: 1rem;
-    font-weight: 300;
-    color:#858585;
-    margin-top: 1rem;
-`;
 
 const Wrap = styled(FlexCenter)`
     position: relative;
@@ -65,7 +49,9 @@ const LottieStyled = styled(Lottie)`
         stroke: #ffffff1a;
         stroke-width:1px;
     }
-    
+    @media (max-width: 640px) {
+        width: 300px;
+    }
 `;
 
 const BoxStyle = styled(motion.div)`
@@ -76,6 +62,10 @@ const BoxStyle = styled(motion.div)`
         color:#eeeeee;
         font-size:0.935rem;
         line-height: 1.45;
+    }
+    @media (max-width: 640px) {
+        width: 100%;
+        padding:1rem 1.5rem;
     }
 `;
 
@@ -104,6 +94,11 @@ const ButtonGroup = styled.div`
     }
 `;
 
+const Copyright = styled.p`
+    font-size: 0.75rem!important;
+    color: #797979!important;
+    margin:20px 0 12px 0;
+`;
 
 
 export default function About() {
@@ -119,7 +114,7 @@ export default function About() {
 return (
     <Root>
         <MaskBg/>
-        <TitleBox ref={ref}>
+        <TitleBoxIndex ref={ref}>
             <TitleText
                 style={{ opacity, scale }}
                 transition={{ type: "spring", stiffness: 50, damping: 15 }} 
@@ -130,7 +125,7 @@ return (
                 transition={{ type: "spring", stiffness: 50, damping: 15 }} >
             : 창의적인 UI/UX 디자인과 웹 퍼블리싱 전문성으로, 사용자 중심의 혁신적인 웹 경험을 제공합니다.
             </SubText>
-        </TitleBox>
+        </TitleBoxIndex>
         <Wrap ref={ref}>
             <LottieStyled animationData={LottieTriangle} loop={true} />
             <BoxStyle style={{ opacity, x }}
@@ -145,6 +140,7 @@ return (
                     <a href="https://www.notion.so/UI-UX-Designer-Web-publisher-1957cdfc3fd0802ba4abf011c0a587df" target="_blank"><NotionLogo/></a>
                     <a href="https://github.com/jiyu-in" target="_blank"><GithubLogo/></a>
                 </ButtonGroup>
+                <Copyright>© 2025. All rights reserved</Copyright>
             </BoxStyle>
         </Wrap>
         
