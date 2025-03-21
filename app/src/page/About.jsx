@@ -24,6 +24,9 @@ const MaskBg = styled.div`
 `;
 
 const TitleBoxIndex = styled(TitleBox)`
+    @media (max-width: 640px) {
+        padding:0 32px;
+    }
     z-index: 1;
 `;
 
@@ -34,9 +37,12 @@ const Wrap = styled(FlexCenter)`
     width: 100%;
     min-height: 36vh;
     margin: 40px auto;
-    background-color: #00000029;
+    background-color: #f1ffc514;//#00000029
     backdrop-filter: blur(2px);
     overflow: hidden;
+    @media (max-width: 640px) {
+        padding:0 32px;
+    }
 `;
 
 const LottieStyled = styled(Lottie)`
@@ -65,7 +71,7 @@ const BoxStyle = styled(motion.div)`
     }
     @media (max-width: 640px) {
         width: 100%;
-        padding:1rem 1.5rem;
+        /* padding:1rem 1.5rem; */
     }
 `;
 

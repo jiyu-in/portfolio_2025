@@ -81,7 +81,7 @@ function Project() {
         <Root>
             <Swiper
                 direction={'vertical'}
-                slidesPerView={1}
+                slidesPerView={2}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,

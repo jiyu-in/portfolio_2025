@@ -60,7 +60,7 @@ export const Cuadrado = styled.div`
 
 
 export const Ifont = styled.div`
-    font-family: "Iropke Batang",serif;
+    font-family: "IropkeBatang", "Iropke Batang",serif;
 `;
 
 export const TitleBox = styled(motion.div)`

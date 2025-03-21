@@ -2,7 +2,6 @@ import React from "react";
 import '../style/style.scss';
 import styled from 'styled-components';
 import Visaul from "./Visaul";
-// import Contact from "./Contact";
 import Portfolio from "./Portfolio";
 import About from "./About";
 
@@ -10,9 +9,6 @@ const Root = styled.div`
   position:relative;
   background-color: #333;
   color:#fff;
-  @media (max-width: 640px) {
-    padding:0 32px;
-  }
 `;
 
 const Section = styled.div`
@@ -25,7 +21,6 @@ const Section = styled.div`
 export default function Main() { 
   return (
     <Root>
-      {/* <Projects/> */}
       <Section id={1}>
         <Visaul />
       </Section>

@@ -13,12 +13,18 @@ const Screen = styled.div`
 `;
 
 const Slogan = styled.div`
-  font-family: "Iropke Batang",serif;
+  font-family: "IropkeBatang", "Iropke Batang",serif;
   font-size: 2.5rem;
   font-weight: 100;
   color: #ffffffde;
   white-space: nowrap;
   padding-bottom:16px;
+  @media (max-width: 640px) {
+        font-size: 1.5rem;
+  }
+  @media (max-width: 480px) {
+        font-size: 1rem;
+    }
 `;
 
 const ProgressBarContainer = styled.div`

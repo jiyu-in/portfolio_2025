@@ -14,6 +14,9 @@ const Root = styled.div`
 
 const Wrap = styled(FlexCenter)`
     flex-direction: column;
+    @media (max-width: 640px) {
+        padding:0 32px;
+    }
 `;
 
 
@@ -36,7 +39,7 @@ function Portfolio() {
               style={{ opacity, scale }}
               transition={{ type: "spring", stiffness: 50, damping: 15 }} 
           >
-              포트폴리오
+              내 작업물
           </TitleText>
           <SubText  
             style={{ opacity }}

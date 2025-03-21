@@ -47,7 +47,7 @@ const Category = styled.div`
     }
 `;
 const Title = styled.div`
-    font-family: "Iropke Batang",serif;
+    font-family: "IropkeBatang", "Iropke Batang",serif;
     font-size:1.5rem;
     font-weight: bold;
     margin:0.5rem 0 0.6rem;
