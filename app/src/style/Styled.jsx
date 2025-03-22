@@ -17,6 +17,10 @@ export const FlexCenter = styled(FlexAlignCenter)`
     justify-content: center;
 `;
 
+export const RelativeBox = styled.div`
+    position: relative;
+`;
+
 
 export const GridBackground = styled.div`
     position: absolute;
@@ -37,14 +41,15 @@ export const Dashed = styled.div`
     top:0;
     width: 100%;
     height: 100%;
-    border: 1px dashed #fff;
+    border: 2px dashed #a7df00;
+    box-shadow: 0 0 10px 180px #1717179c;
 `;
 
 export const Cuadrado = styled.div`
     width: 7px;
     height: 7px;
-    background: #333;
-    border: 1px solid #fff;
+    background: #ff3d3d;
+    border: 1px solid #c8fe26;
     position: absolute;
     &.cuad1{top: 0; left: 0; margin: -3.5px 0 0 -3.5px;}
     &.cuad2{top: 0; right: 0; margin: -3.5px -3.5px 0 0;}
@@ -60,7 +65,7 @@ export const Cuadrado = styled.div`
 
 
 export const Ifont = styled.div`
-    font-family: "IropkeBatang", "Iropke Batang",serif;
+    font-family: "IBM Plex Sans KR", serif;
 `;
 
 export const TitleBox = styled(motion.div)`
@@ -76,7 +81,7 @@ export const TitleBox = styled(motion.div)`
 `;
 
 export const TitleText = styled(motion.span)`
-    font-family: "Iropke Batang",serif;
+    /* font-family: "Iropke Batang",serif; */
 `;
 
 export const SubText = styled(motion.span)`

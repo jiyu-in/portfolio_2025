@@ -39,12 +39,14 @@ function Portfolio() {
               style={{ opacity, scale }}
               transition={{ type: "spring", stiffness: 50, damping: 15 }} 
           >
-              내 작업물
+            Project
           </TitleText>
           <SubText  
             style={{ opacity }}
               transition={{ type: "spring", stiffness: 50, damping: 15 }} >
-          : 사용자 중심의 UI/UX 디자인과 그것을 구현한 프로젝트를 소개합니다.
+                SI에서 쌓은 실력으로 가상화폐거래소, 비대면 교육관리까지의 중요 프로젝트를 소개합니다.
+              {/* 정보 제공의 명확성, 학과 일정관리 등 대시보드를 통해 사용자 경험을 향상시키는 작업 교육관련 컨텐츠 중심의 웹 페이지를 구현하였고,
+              가상화폐거래소 사용자에게 쉬운 탐색 경험과 심미적인 UI를 제공하는 작업을 했습니다. */}
           </SubText>
         </TitleBox>
         <ProjectList />

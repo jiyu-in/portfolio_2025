@@ -5,7 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Keyboard, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css/effect-coverflow';
+import { Keyboard, Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
 import { motion, useScroll, useTransform } from "framer-motion";
 import ArrowRight from '../assets/images/ArrowRightIcon.svg';
 import ArrowLeft from '../assets/images/ArrowLeftIcon.svg';
@@ -18,9 +19,12 @@ const Root = styled.div`
     margin-top: 40px;
     & .swiper{
         width: calc(100vw - 48px);
-        height: 640px;
+        height: 55vh;
         @media (max-width: 640px) {
             height: 480px;
+        }
+        @media (max-width: 480px) {
+            height: 340px;
         }
     }
     & .swiper-wrapper{
@@ -51,9 +55,9 @@ const Root = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        backdrop-filter: blur(21px);
+        /* backdrop-filter: blur(21px); */
         background-color: #ffffff14;
-        border: 1px solid #000000;
+        /* border: 1px dashed #a7df00; */
         border-width: 1px 0;
         @media (max-width: 640px) {
             width: 100%;
@@ -80,30 +84,43 @@ function Project() {
     return (
         <Root>
             <Swiper
-                direction={'vertical'}
-                slidesPerView={2}
-                breakpoints={{
-                    640: {
-                        slidesPerView: 2,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                    },
+                // direction={'vertical'}
+                // slidesPerView={2}
+                // breakpoints={{
+                //     640: {
+                //         slidesPerView: 2,
+                //     },
+                //     768: {
+                //         slidesPerView: 3,
+                //     },
+                //     1024: {
+                //         slidesPerView: 4,
+                //     },
+                // }}
+                // spaceBetween={0}
+                // keyboard={{
+                //     enabled: true,
+                // }}
+                // pagination={{
+                //     clickable: true,
+                // }}
+                // navigation={true}
+                // modules={[Keyboard, Navigation]}
+                // className="mySwiper"
+                // parallax={true}
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
                 }}
-                spaceBetween={0}
-                keyboard={{
-                    enabled: true,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                modules={[Keyboard, Navigation]}
-                className="mySwiper"
-                parallax={true}
+                pagination={true}
+                modules={[EffectCoverflow, Navigation]}
                 ref={ref}
             >
                 {projects.map(( item , index) => (

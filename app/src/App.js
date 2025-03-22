@@ -22,11 +22,16 @@ function App() {
         <Cursor/>
         <Header/>
         <Main />
-        {!isSmallScreen && (<Footer className="footer" />) }
-        <CircleComponent/>
     </div>
       )}
     </AnimatePresence>
+      // <div className="App">
+      //   <Cursor/>
+      //   <Header/>
+      //   <Main />
+      //   {/* {!isSmallScreen && (<Footer className="footer" />) }
+      //   <CircleComponent/> */}
+      // </div>
   );
 }
 

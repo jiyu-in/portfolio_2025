@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import { FlexCenter, TitleBox, TitleText, SubText } from '../style/Styled';
 import Lottie from "lottie-react";
 import LottieTriangle from "../assets/lottie/AnimationTriangle.json"; 
-import { ReactComponent as NotionLogo } from "../assets/images/notion-logo.svg"; 
+import AnimationFlower from "../assets/lottie/AnimationFlower4.json"; 
+import { ReactComponent as NotionLogo } from "../assets/images/NotionLogoWhite.svg"; 
 import { ReactComponent as GithubLogo } from "../assets/images/github-logo.svg"; 
+import { ReactComponent as Email } from "../assets/images/MailIconWhite.svg"; 
 
 const Root = styled(FlexCenter)`
     height: 100vh;
@@ -37,7 +39,7 @@ const Wrap = styled(FlexCenter)`
     width: 100%;
     min-height: 36vh;
     margin: 40px auto;
-    background-color: #f1ffc514;//#00000029
+    background-color: #476b74;//#953d0c;
     backdrop-filter: blur(2px);
     overflow: hidden;
     @media (max-width: 640px) {
@@ -46,26 +48,27 @@ const Wrap = styled(FlexCenter)`
 `;
 
 const LottieStyled = styled(Lottie)`
-    width: 420px;
     position: absolute;
-    right: -120px;
-    bottom: -26%;
+    right: 30px;
+    bottom: 20px;
+    width: 35%;
+    opacity: 0.7;
     & path{
         fill:#ffffff11;
         stroke: #ffffff1a;
         stroke-width:1px;
     }
     @media (max-width: 640px) {
-        width: 300px;
+        width: 25%;
     }
 `;
 
 const BoxStyle = styled(motion.div)`
     width: 65%;
-    color:#fff;
+    color:#92bac5;
     word-break: keep-all;
     & p{
-        color:#eeeeee;
+        color:#92bac5;
         font-size:0.935rem;
         line-height: 1.45;
     }
@@ -76,33 +79,33 @@ const BoxStyle = styled(motion.div)`
 `;
 
 const Point = styled.span`
-    color: #c8fe26;
-`;
-
-const GreenPoint = styled.span`
-    color: #c8fe26;
-    background: #c8fe26;
-    color: #333;
+    color: #9ee6f8;//#c2a8ff;
     font-size: 0.813rem;
     font-weight: 700;
     padding: 0px 3px;
+`;
+
+const GreenPoint = styled(Point)`
+    color: #fff;//#9ee6f8;
+    background: #ffffff21;
 `;
 
 const ButtonGroup = styled.div`
     display: inline-flex;
     margin-top: 1rem;
     padding-top: 2rem;
-    border-top: 1px solid #fff;
+    border-top: 1px solid #ffffff2b;
     gap: 1.5rem;
     & svg{
         width: 20px;
         height: 20px;
+        opacity: 0.5;
     }
 `;
 
 const Copyright = styled.p`
     font-size: 0.75rem!important;
-    color: #797979!important;
+    color: #779da7!important;
     margin:20px 0 12px 0;
 `;
 
@@ -129,11 +132,11 @@ return (
             </TitleText>
             <SubText  style={{ opacity }}
                 transition={{ type: "spring", stiffness: 50, damping: 15 }} >
-            : 창의적인 UI/UX 디자인과 웹 퍼블리싱 전문성으로, 사용자 중심의 혁신적인 웹 경험을 제공합니다.
+            저는 UI/UX 디자이너이자 퍼블리셔입니다.
             </SubText>
         </TitleBoxIndex>
         <Wrap ref={ref}>
-            <LottieStyled animationData={LottieTriangle} loop={true} />
+            {/* <LottieStyled animationData={AnimationFlower} loop={true} /> */}
             <BoxStyle style={{ opacity, x }}
                 transition={{ type: "spring", stiffness: 50, damping: 15 }}
             >
@@ -143,13 +146,14 @@ return (
                 웹 표준과 접근성을 고려한 시멘틱 <Point>HTML/CSS </Point>마크업을 바탕으로 <Point>React</Point> 환경에서 퍼블리싱 작업이 가능합니다.</p>
                 
                 <ButtonGroup>
+                    {/* <a href="https://github.com/jiyu-in" target="_blank"><GithubLogo/></a> */}
+                    <a href="mailto:jyin2205@naver.com" target="_blank"><Email/></a>
                     <a href="https://www.notion.so/UI-UX-Designer-Web-publisher-1957cdfc3fd0802ba4abf011c0a587df" target="_blank"><NotionLogo/></a>
-                    <a href="https://github.com/jiyu-in" target="_blank"><GithubLogo/></a>
                 </ButtonGroup>
                 <Copyright>© 2025. All rights reserved</Copyright>
             </BoxStyle>
         </Wrap>
-        
+        <LottieStyled animationData={AnimationFlower} loop={false} />
     </Root>
   );
 }

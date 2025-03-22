@@ -11,9 +11,9 @@ const Root = styled(motion.div)`
     overflow:hidden;
     transition: all 0.5s ease;
     &>img{
-        display: none;
+        /* display: none; */
         transform: scale(1);
-        filter: brightness(0.3);
+        filter: opacity(0.6) brightness(0.5);
         /* @media (max-width: 640px) {
             display: none;
         } */
@@ -45,13 +45,13 @@ const Category = styled.div`
         /* padding:2px 4px; */
         font-size: 0.75rem;
         font-weight: 500;
-        color: #c8fe26;
-        border-bottom:1px solid #c8fe26;
+        color: #ec7f49;
+        /* border-bottom:1px solid #ec7f49; */
     }
 `;
 const Title = styled.div`
-    font-family: "IropkeBatang", "Iropke Batang",serif;
-    font-size:1.5rem;
+    /* font-family: "IropkeBatang", "Iropke Batang",serif; */
+    font-size:1.75rem;
     font-weight: bold;
     margin:0.5rem 0 0.6rem;
     text-align: center;
@@ -102,6 +102,18 @@ const VideoStyled = styled.video`
     filter: brightness(0.5);
 `;
 
+const Link = styled.a`
+    color: #171717;
+    font-size: 0.875rem;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    background-color: #91afc0;
+    margin-top: 20px;
+    /* border-bottom: 1px solid #91afc0; 
+     box-shadow: 1px 1px 12px #91afc0; */
+`;
+
+
 
 function ProjectList({ title, date, skills, des, category, img, url, opacity, translateX }) {
 
@@ -113,7 +125,7 @@ function ProjectList({ title, date, skills, des, category, img, url, opacity, tr
     <Root 
         style={{ opacity, translateX }}
         transition={{ type: "object", stiffness: 50, damping: 15 }}
-        onClick={() => handleClick(url)}
+        // onClick={() => handleClick(url)}
     >
         <BgImage src={process.env.PUBLIC_URL + img} alt={title} />
         <Wrap>
@@ -130,6 +142,7 @@ function ProjectList({ title, date, skills, des, category, img, url, opacity, tr
                 ))}
             </Skills>
             <Description>{des}</Description>
+            <Link href={url}> 자세히 보기</Link>
         </Wrap>
     </Root>
     );

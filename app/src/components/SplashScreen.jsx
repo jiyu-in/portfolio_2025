@@ -13,9 +13,9 @@ const Screen = styled.div`
 `;
 
 const Slogan = styled.div`
-  font-family: "IropkeBatang", "Iropke Batang",serif;
+  /* font-family: "IropkeBatang", "Iropke Batang",serif; */
   font-size: 2.5rem;
-  font-weight: 100;
+  font-weight: 300;
   color: #ffffffde;
   white-space: nowrap;
   padding-bottom:16px;
@@ -36,14 +36,14 @@ const ProgressBarContainer = styled.div`
 
 const ProgressBar = styled.div`
   height: 100%;
-  background: #c8fe26;
+  background: #ec7f49;//#c8fe26;
   /* background: linear-gradient(90deg, rgba(200,254,38,1) 0%, rgba(39,146,192,1) 100%); */
   width: ${(props) => props.width}%;
   transition: width 0.2s ease-in-out;
 `;
 
 const SplashScreen = ({ onFinish = () => {} }) => {
-  const sloganText = "한 픽셀의 차이가 사용자 경험을 바꾼다";
+  const sloganText = "손끝에서 탄생하는 새로운 연결";//"한 픽셀의 차이가 사용자 경험을 바꿉니다";
   const [displayedText, setDisplayedText] = useState("");
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef(null);
