@@ -134,6 +134,7 @@ function Project() {
                             category={item.category}
                             img={item.img}
                             url={item.url}
+                            page={item.page}
                             opacity={opacity}
                             translateX={x}
                             />

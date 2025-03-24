@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import { FlexCenter } from '../style/Styled.jsx';
+import { FlexCenter, FlexColumn } from '../style/Styled.jsx';
 import { motion, useScroll, useTransform } from "framer-motion";
 
 
@@ -88,7 +88,7 @@ const BgImage = styled.img`
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(0.7);
+    filter: brightness(0.8);
 `;
 
 const VideoStyled = styled.video`
@@ -102,6 +102,10 @@ const VideoStyled = styled.video`
     filter: brightness(0.5);
 `;
 
+const LinkBox = styled(FlexCenter)`
+    gap:16px;
+`;
+
 const Link = styled.a`
     color: #171717;
     font-size: 0.875rem;
@@ -113,9 +117,23 @@ const Link = styled.a`
      box-shadow: 1px 1px 12px #91afc0; */
 `;
 
+const LinkOutline = styled(Link)`
+    color: #91afc0;
+    background-color: transparent;
+    border: 1px solid #91afc0; 
+    /* box-shadow: 1px 1px 12px #91afc0;  */
+`;
+
+const BoxStyle = styled(FlexColumn)`
+    align-items: center;
+    background-color: #00000066;
+    padding: 40px;
+    backdrop-filter: blur(17px);
+    border: 1px dashed #a7df00;
+`;
 
 
-function ProjectList({ title, date, skills, des, category, img, url, opacity, translateX }) {
+function ProjectList({ title, date, skills, des, category, img, url, page, opacity, translateX }) {
 
     const handleClick = (url) => {
         window.open(url, '_blank');
@@ -129,6 +147,7 @@ function ProjectList({ title, date, skills, des, category, img, url, opacity, tr
     >
         <BgImage src={process.env.PUBLIC_URL + img} alt={title} />
         <Wrap>
+            <BoxStyle>
             <Category>
             {category.map((item, index) => (
                 <span key={index}>{item}</span>
@@ -142,7 +161,11 @@ function ProjectList({ title, date, skills, des, category, img, url, opacity, tr
                 ))}
             </Skills>
             <Description>{des}</Description>
-            <Link href={url}> 자세히 보기</Link>
+            <LinkBox>
+                <Link href={url}> 자세히 보기</Link>
+                {page && <LinkOutline href={page}> 사이트 보기</LinkOutline>}
+            </LinkBox>
+            </BoxStyle>
         </Wrap>
     </Root>
     );

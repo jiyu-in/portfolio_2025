@@ -1,6 +1,17 @@
 [
     { 
-        "category":["Design", "Publishing"],
+        "category":["금융", "부동산"],
+        "title": "개인자산관리",
+        "date": "2022.10 ~ 2024.10", 
+        "skills":["React", "Javascript", "Figma", "Git"],
+        "des":"부동산 중개 서비스에서 자산관리 플랫폼까지 확장시킨 대시보드 화면 설계 및 퍼블작업",
+        "img": "/images/BannerDabang.jpg",
+        "video": "LMSVideo.mp4",
+        "url":"https://sumptuous-amaryllis-ad1.notion.site/1967cdfc3fd08149b708d50a1eb4f2d8?pvs=4",
+        "page":"https://jiyu-in.github.io/dabang_dashboard/"
+    },
+    { 
+        "category":["교육", "LMS", "기업 솔루션"],
         "title": "비대면 LMS(학습관리시스템) 사이트",
         "date": "2022.10 ~ 2024.10", 
         "skills":["React", "Javascript", "Figma", "Git"],
@@ -10,17 +21,17 @@
         "url":"https://sumptuous-amaryllis-ad1.notion.site/LMS-1967cdfc3fd08149b708d50a1eb4f2d8"
     },
     { 
-        "category":["Design", "Publishing"],
+        "category":["AI", "디지털 저작권 관리"],
         "title": "음성 저작권인 VOICE 비즈니스 모델",
         "date": "2022.09 ~ 2022.12", 
         "skills":["HTML&CSS", "JavaScript", "SCSS", "Figma", "Adobe Photoshop","Adobe illustrator"],
         "des":"VOICE 비즈니스 모델을 통해 개인에게는 새로운 장르의 보이스 콘텐츠 제공, 신개념 보이스 엔터테인먼트 플랫폼",
-        "img": "/images/BannerDubi.jpg",
+        "img": "/images/BannerDubidub.jpg",
         "video": "ExchangeVideo.mp4",
         "url":"https://sumptuous-amaryllis-ad1.notion.site/TBN-1967cdfc3fd081d1bd8fe75ac30fa625"
     },
     { 
-        "category":["Design", "Publishing"],
+        "category":["AI", "스마트 모빌리티", "AI"],
         "title": "TBN 교통혼잡예보 서비스",
         "date": "2022.02 ~ 2022.09", 
         "skills":["Adobe Photoshop", "HTML&CSS", "JavaScript", "SCSS"],
@@ -30,32 +41,32 @@
         "url":"https://sumptuous-amaryllis-ad1.notion.site/TBN-1967cdfc3fd081d1bd8fe75ac30fa625"
     },
     { 
-        "category":["Design"],
+        "category":["블록체인", "금융 기술"],
         "title": "가상화폐거래소 UI&UX",
         "date": "2017 ~ 2019", 
         "skills":["Adobe Photoshop","Adobe illustrator","Adobe XD", "Sketch"],
         "des":"사용자가 즉시 거래를 시작할 수 있도록 직관적인 버튼과 UI 요소 설계",
-        "img": "/images/BannerExchange.jpg",
+        "img": "/images/BannerDexko.jpg",
         "video":"ExchagneVideo",
         "url":"https://sumptuous-amaryllis-ad1.notion.site/UI-UX-1967cdfc3fd081d5a9efd3cb48cd5a10"
     },
     { 
-        "category":["Design", "Publishing"],
+        "category":["교육", "미디어 & 콘텐츠 플랫폼"],
         "title": "한국방송예술교육진흥원 리뉴얼 및 행사포스터 ",
         "date": "2016. 01 ~ 2016. 05", 
         "skills":["Adobe Photoshop","Adobe illustrator","HTML&CSS"],
         "des":"플래시로 작업했던 기존 홈페이지를 반응형 웹으로 리디자인 및 행사 홍보 포스터 디자인 작업",
-        "img": "/images/BannerKBA.jpg",
+        "img": "/images/BannerKBAS.jpg",
         "video":"LMSVideo",
         "url":"https://sumptuous-amaryllis-ad1.notion.site/1a77cdfc3fd0808dafa8e468a8f84302?pvs=42"
     },
     {  
-        "category":["Design", "Publishing"],
+        "category":["교육", "공공 웹사이트"],
         "title": "서울대학교 학과 페이지 리뉴얼",
         "date": "2014.04 ~ 2015.04", 
         "skills":["Adobe Photoshop","Adobe illustrator","HTML&CSS"],
         "des":"서울대학교 학과의 브랜드 이미지와 정보 제공을 최적화",
-        "img": "/images/BannerKU.jpg",
+        "img": "/images/BannerSU.jpg",
         "video":"ExchagneVideo",
         "url":"https://sumptuous-amaryllis-ad1.notion.site/1967cdfc3fd081eb9bcfd81e7cd80d4d"
     }
