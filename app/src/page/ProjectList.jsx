@@ -39,6 +39,9 @@ const Wrap = styled(FlexCenter)`
     height: 100%;
     padding:0 2.5rem;
     margin-left:auto;
+    @media (max-width: 940px) {
+        width:80%;
+    }
     @media (max-width: 640px) {
         padding:0 1em;
     }
@@ -119,7 +122,7 @@ const Link = styled.a`
     margin-top: 20px;
     /* border-bottom: 1px solid #91afc0; 
      box-shadow: 1px 1px 12px #91afc0; */
-     @media (max-width: 640px) {
+    @media (max-width: 640px) {
         padding: 0.5rem;
     }
 `;

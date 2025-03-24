@@ -81,6 +81,7 @@ export const TitleBox = styled(motion.div)`
 `;
 
 export const TitleText = styled(motion.span)`
+    word-break: keep-all;
     /* font-family: "Iropke Batang",serif; */
 `;
 

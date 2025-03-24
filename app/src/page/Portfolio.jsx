@@ -20,6 +20,7 @@ const Wrap = styled(FlexCenter)`
 `;
 
 
+
 function Portfolio() {
       const ref = useRef(null);
       const { scrollYProgress } = useScroll({
@@ -27,7 +28,7 @@ function Portfolio() {
       offset: ["start 70%", "start 30%"], 
       }); 
       const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
-      const scale = useTransform(scrollYProgress, [0, 0.5, 1], [3, 1.5, 1]);
+      const scale = useTransform(scrollYProgress, [0, 0.5, 0.75, 1], [2, 1.5, 1, 1]);
 
   
   return (

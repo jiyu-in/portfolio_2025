@@ -26,8 +26,9 @@ const MaskBg = styled.div`
 `;
 
 const TitleBoxIndex = styled(TitleBox)`
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
         padding:0 32px;
+        align-items: flex-start;
     }
     z-index: 1;
 `;
@@ -58,8 +59,11 @@ const LottieStyled = styled(Lottie)`
         stroke: #ffffff1a;
         stroke-width:1px;
     }
-    @media (max-width: 640px) {
+    @media (min-width: 1400px) {
         width: 25%;
+    }
+    @media (max-width: 480px) {
+        width: 45%;
     }
 `;
 
@@ -117,7 +121,7 @@ export default function About() {
         offset: ["start 70%", "start 30%"], 
         }); 
     const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
-    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [2, 1.5, 1]);
+    const scale = useTransform(scrollYProgress, [0, 0.5, 0.75, 1], [2, 1.5, 1, 1]);
     const x = useTransform(scrollYProgress, [0, 0.5, 1], [50, 25, 1]);
 
 return (

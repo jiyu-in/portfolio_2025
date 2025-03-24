@@ -84,30 +84,6 @@ function Project() {
     return (
         <Root>
             <Swiper
-                // direction={'vertical'}
-                // slidesPerView={2}
-                // breakpoints={{
-                //     640: {
-                //         slidesPerView: 2,
-                //     },
-                //     768: {
-                //         slidesPerView: 3,
-                //     },
-                //     1024: {
-                //         slidesPerView: 4,
-                //     },
-                // }}
-                // spaceBetween={0}
-                // keyboard={{
-                //     enabled: true,
-                // }}
-                // pagination={{
-                //     clickable: true,
-                // }}
-                // navigation={true}
-                // modules={[Keyboard, Navigation]}
-                // className="mySwiper"
-                // parallax={true}
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}

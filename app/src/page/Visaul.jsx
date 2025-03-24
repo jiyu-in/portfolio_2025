@@ -46,6 +46,10 @@ const Slogan = styled(motion.div)`
     color:#7e8c94;
     /* border-bottom: 2px solid #ec7f49; */
   }
+  @media (max-width: 768px) {
+    font-size: 4rem;
+    margin:0;
+  }
   @media (max-width: 640px) {
     font-size: 3rem;
   }
