@@ -115,6 +115,9 @@ const Link = styled.a`
     margin-top: 20px;
     /* border-bottom: 1px solid #91afc0; 
      box-shadow: 1px 1px 12px #91afc0; */
+     @media (max-width: 640px) {
+        padding: 0.5rem;
+    }
 `;
 
 const LinkOutline = styled(Link)`
@@ -130,6 +133,10 @@ const BoxStyle = styled(FlexColumn)`
     padding: 40px;
     backdrop-filter: blur(17px);
     border: 1px dashed #a7df00;
+    @media (max-width: 640px) {
+        max-width: 60vw ;
+        padding: 1rem;
+    }
 `;
 
 
