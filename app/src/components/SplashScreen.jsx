@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
+import Lottie from "lottie-react";
+import AnimationFlower from "../assets/lottie/AnimationFlower4.json";
 
 const Screen = styled.div`
   display: flex;
@@ -8,7 +10,7 @@ const Screen = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #333;
+  background-color: #171717;
   overflow: hidden;
 `;
 
@@ -36,14 +38,30 @@ const ProgressBarContainer = styled.div`
 
 const ProgressBar = styled.div`
   height: 100%;
-  background: #ec7f49;//#c8fe26;
+  background: #91afc0;//#c8fe26;
   /* background: linear-gradient(90deg, rgba(200,254,38,1) 0%, rgba(39,146,192,1) 100%); */
   width: ${(props) => props.width}%;
   transition: width 0.2s ease-in-out;
+  &::after{
+    content: "";
+    background-image: url();
+  }
 `;
 
+const LottieBox = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.4;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+`;
+
+
 const SplashScreen = ({ onFinish = () => {} }) => {
-  const sloganText = "손끝에서 탄생하는 새로운 연결";//"한 픽셀의 차이가 사용자 경험을 바꿉니다";
+  const sloganText = "디플리셔(Designer + Publisher)";//"한 픽셀의 차이가 사용자 경험을 바꿉니다"//손끝에서 탄생하는 새로운 연결
   const [displayedText, setDisplayedText] = useState("");
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef(null);
@@ -75,6 +93,9 @@ const SplashScreen = ({ onFinish = () => {} }) => {
     <Screen>
       <Slogan>{displayedText}</Slogan>
       <ProgressBarContainer>
+        <LottieBox>
+          <Lottie animationData={AnimationFlower} loop={true} />
+        </LottieBox>
         <ProgressBar width={progress} />
       </ProgressBarContainer>
     </Screen>

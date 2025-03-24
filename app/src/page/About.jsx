@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FlexCenter, TitleBox, TitleText, SubText } from '../style/Styled';
 import Lottie from "lottie-react";
 import LottieTriangle from "../assets/lottie/AnimationTriangle.json"; 
-import AnimationFlower from "../assets/lottie/AnimationFlower4.json"; 
+import AnimationFlower from "../assets/lottie/AnimationFlower1.json"; 
 import { ReactComponent as NotionLogo } from "../assets/images/NotionLogoWhite.svg"; 
 import { ReactComponent as GithubLogo } from "../assets/images/github-logo.svg"; 
 import { ReactComponent as Email } from "../assets/images/MailIconWhite.svg"; 

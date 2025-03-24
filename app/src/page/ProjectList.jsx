@@ -11,8 +11,8 @@ const Root = styled(motion.div)`
     overflow:hidden;
     transition: all 0.5s ease;
     &>img{
-        transform: scale(1.2);
-        filter: opacity(0.6) brightness(1) blur(0px);
+        transform: scale(1);
+        filter: opacity(0.6) brightness(0.5) blur(2px);
         border: 5px solid rgba(0, 0, 0, 0.5);
         /* @media (max-width: 640px) {
             display: none;
@@ -22,8 +22,8 @@ const Root = styled(motion.div)`
         transition: all 2s ease;
         &>img{
             display: block;
-            transform: scale(1);
-            filter: opacity(0.6) brightness(0.5) blur(2px);
+            transform: scale(0.9);
+            filter: opacity(0.6) brightness(1) blur(0px);
             transition: all 2s ease;
         }
         & .box{
@@ -35,10 +35,10 @@ const Root = styled(motion.div)`
 const Wrap = styled(FlexCenter)`
     position: relative;
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     height: 100%;
     padding:0 2.5rem;
-    margin:0 auto;
+    margin-left:auto;
     @media (max-width: 640px) {
         padding:0 1em;
     }
@@ -88,7 +88,7 @@ const BgImage = styled.img`
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 60%;
     height: 100%;
     object-fit: cover;
     z-index: -1;
@@ -132,10 +132,10 @@ const LinkOutline = styled(Link)`
 `;
 
 const BoxStyle = styled(FlexColumn)`
-    display: none;
+    /* display: none; */
     align-items: center;
     padding: 40px;
-    border: 1px dashed #a7df00;
+    border: 1px dashed #91afc0;
     background: #0000007a;
     @media (max-width: 640px) {
         max-width: 60vw ;
