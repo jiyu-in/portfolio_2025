@@ -15,7 +15,6 @@ const Screen = styled.div`
 `;
 
 const Slogan = styled.div`
-  /* font-family: "IropkeBatang", "Iropke Batang",serif; */
   font-size: 2.5rem;
   font-weight: 300;
   color: #ffffffde;
@@ -34,6 +33,7 @@ const ProgressBarContainer = styled.div`
   height: 3px;
   background-color: #333;
   overflow: hidden;
+  /* margin-bottom: 20px; */
 `;
 
 const ProgressBar = styled.div`
@@ -51,7 +51,7 @@ const ProgressBar = styled.div`
 const LottieBox = styled.div`
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 8%;
   width: 100%;
   opacity: 0.4;
   display: flex;
