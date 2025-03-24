@@ -39,7 +39,7 @@ const Wrap = styled(FlexCenter)`
     width: 100%;
     min-height: 36vh;
     margin: 40px auto;
-    background-color: #476b74;//#953d0c;
+    background-color: #91afc0;//#476b74;//
     backdrop-filter: blur(2px);
     overflow: hidden;
     @media (max-width: 640px) {
@@ -65,10 +65,10 @@ const LottieStyled = styled(Lottie)`
 
 const BoxStyle = styled(motion.div)`
     width: 65%;
-    color:#92bac5;
+    color:#385869;
     word-break: keep-all;
     & p{
-        color:#92bac5;
+        color:#385869;
         font-size:0.935rem;
         line-height: 1.45;
     }
@@ -105,7 +105,7 @@ const ButtonGroup = styled.div`
 
 const Copyright = styled.p`
     font-size: 0.75rem!important;
-    color: #779da7!important;
+    color: #385869!important;
     margin:20px 0 12px 0;
 `;
 

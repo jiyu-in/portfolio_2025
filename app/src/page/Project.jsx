@@ -56,7 +56,7 @@ const Root = styled.div`
         align-items: center;
         justify-content: center;
         /* backdrop-filter: blur(21px); */
-        background-color: #ffffff14;
+        /* background-color: #ffffff14; */
         /* border: 1px dashed #a7df00; */
         border-width: 1px 0;
         @media (max-width: 640px) {

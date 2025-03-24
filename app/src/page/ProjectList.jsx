@@ -11,18 +11,23 @@ const Root = styled(motion.div)`
     overflow:hidden;
     transition: all 0.5s ease;
     &>img{
-        /* display: none; */
-        transform: scale(1);
-        filter: opacity(0.6) brightness(0.5);
+        transform: scale(1.2);
+        filter: opacity(0.6) brightness(1) blur(0px);
+        border: 5px solid rgba(0, 0, 0, 0.5);
         /* @media (max-width: 640px) {
             display: none;
         } */
     }
     &:hover, &:focus{
-        filter: blur(0px) brightness(1);
+        transition: all 2s ease;
         &>img{
             display: block;
-            transform: scale(1.2);
+            transform: scale(1);
+            filter: opacity(0.6) brightness(0.5) blur(2px);
+            transition: all 2s ease;
+        }
+        & .box{
+            display: flex;
             transition: all 2s ease;
         }
     }
@@ -50,7 +55,6 @@ const Category = styled.div`
     }
 `;
 const Title = styled.div`
-    /* font-family: "IropkeBatang", "Iropke Batang",serif; */
     font-size:1.75rem;
     font-weight: bold;
     margin:0.5rem 0 0.6rem;
@@ -63,7 +67,7 @@ const Title = styled.div`
 const DateText = styled.div``; 
 const Description = styled.div`
     font-size:0.875rem;
-    color:#ffffff66;
+    color:#ffffff;
     @media (max-width: 640px) {
         display: none;
     }
@@ -128,11 +132,11 @@ const LinkOutline = styled(Link)`
 `;
 
 const BoxStyle = styled(FlexColumn)`
+    display: none;
     align-items: center;
-    background-color: #00000066;
     padding: 40px;
-    backdrop-filter: blur(17px);
     border: 1px dashed #a7df00;
+    background: #0000007a;
     @media (max-width: 640px) {
         max-width: 60vw ;
         padding: 1rem;
@@ -154,24 +158,24 @@ function ProjectList({ title, date, skills, des, category, img, url, page, opaci
     >
         <BgImage src={process.env.PUBLIC_URL + img} alt={title} />
         <Wrap>
-            <BoxStyle>
-            <Category>
-            {category.map((item, index) => (
-                <span key={index}>{item}</span>
-            ))}  
-            </Category>
-            <Title>{title}</Title>
-            {/* <DateText>{date}</DateText> */}
-            <Skills>
-                {skills.map((skill, index) => (
-                <span key={index}>#{skill}</span>
-                ))}
-            </Skills>
-            <Description>{des}</Description>
-            <LinkBox>
-                <Link href={url}> 자세히 보기</Link>
-                {page && <LinkOutline href={page}> 사이트 보기</LinkOutline>}
-            </LinkBox>
+            <BoxStyle className="box">
+                <Category>
+                {category.map((item, index) => (
+                    <span key={index}>{item}</span>
+                ))}  
+                </Category>
+                <Title>{title}</Title>
+                {/* <DateText>{date}</DateText> */}
+                <Skills>
+                    {skills.map((skill, index) => (
+                    <span key={index}>#{skill}</span>
+                    ))}
+                </Skills>
+                <Description>{des}</Description>
+                <LinkBox>
+                    <Link href={url}> 자세히 보기</Link>
+                    {page && <LinkOutline href={page}> 사이트 보기</LinkOutline>}
+                </LinkBox>
             </BoxStyle>
         </Wrap>
     </Root>
