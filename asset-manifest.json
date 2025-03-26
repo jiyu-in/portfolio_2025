@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.e79bbf1d.css",
-    "main.js": "/portfolio/static/js/main.55bb8b5c.js",
+    "main.js": "/portfolio/static/js/main.c52a09ac.js",
     "static/media/IropkeBatangM.woff": "/portfolio/static/media/IropkeBatangM.950fceb73642b113da89.woff",
     "static/media/LogoDP.svg": "/portfolio/static/media/LogoDP.2a98bc322c5190030fa55071d7b79731.svg",
     "static/media/NotionLogoWhite.svg": "/portfolio/static/media/NotionLogoWhite.f4d7cae9a84053afa0d2e333f4fe7efd.svg",
@@ -12,10 +12,10 @@
     "static/media/ArrowLeftIcon.svg": "/portfolio/static/media/ArrowLeftIcon.ed399dc9dda2ab68cb6dfb774b6804ad.svg",
     "static/media/ArrowRightIcon.svg": "/portfolio/static/media/ArrowRightIcon.0961e3007de90bb51acb633f47a60cab.svg",
     "main.e79bbf1d.css.map": "/portfolio/static/css/main.e79bbf1d.css.map",
-    "main.55bb8b5c.js.map": "/portfolio/static/js/main.55bb8b5c.js.map"
+    "main.c52a09ac.js.map": "/portfolio/static/js/main.c52a09ac.js.map"
   },
   "entrypoints": [
     "static/css/main.e79bbf1d.css",
-    "static/js/main.55bb8b5c.js"
+    "static/js/main.c52a09ac.js"
   ]
 }
