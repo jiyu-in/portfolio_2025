@@ -73,7 +73,7 @@ const BoxStyle = styled(motion.div)`
     word-break: keep-all;
     & p{
         color:#385869;
-        font-size:0.935rem;
+        font-size:1rem;
         line-height: 1.45;
     }
     @media (max-width: 640px) {
@@ -84,7 +84,7 @@ const BoxStyle = styled(motion.div)`
 
 const Point = styled.span`
     color: #9ee6f8;//#c2a8ff;
-    font-size: 0.813rem;
+    font-size: 0.875rem;
     font-weight: 700;
     padding: 0px 3px;
 `;
@@ -134,10 +134,10 @@ return (
             >
                 UI&UX Designer | Web publisher
             </TitleText>
-            <SubText  style={{ opacity }}
+            {/* <SubText  style={{ opacity }}
                 transition={{ type: "spring", stiffness: 50, damping: 15 }} >
             저는 UI/UX 디자이너이자 퍼블리셔입니다.
-            </SubText>
+            </SubText> */}
         </TitleBoxIndex>
         <Wrap ref={ref}>
             {/* <LottieStyled animationData={AnimationFlower} loop={true} /> */}

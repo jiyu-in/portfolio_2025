@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import ProjectList from "./ProjectList";
+import ProjectList from "./ProjectList_backup";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/free-mode';
-import { Keyboard, Navigation, Pagination, FreeMode } from 'swiper/modules';
+import 'swiper/css/effect-coverflow';
+import { Keyboard, Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
 import { motion, useScroll, useTransform } from "framer-motion";
 import ArrowRight from '../assets/images/ArrowRightIcon.svg';
 import ArrowLeft from '../assets/images/ArrowLeftIcon.svg';
@@ -19,13 +19,13 @@ const Root = styled.div`
     margin-top: 40px;
     & .swiper{
         width: calc(100vw - 48px);
-        height: 60vh;
-        /* @media (max-width: 640px) {
+        height: 55vh;
+        @media (max-width: 640px) {
             height: 480px;
         }
         @media (max-width: 480px) {
             height: 340px;
-        } */
+        }
     }
     & .swiper-wrapper{
         align-items: center;
@@ -55,6 +55,9 @@ const Root = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        /* backdrop-filter: blur(21px); */
+        /* background-color: #ffffff14; */
+        /* border: 1px dashed #a7df00; */
         border-width: 1px 0;
         @media (max-width: 640px) {
             width: 100%;
@@ -81,29 +84,20 @@ function Project() {
     return (
         <Root>
             <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
-                freeMode={true}
-                pagination={{
-                clickable: true,
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
                 }}
-                modules={[FreeMode, Navigation]}
-                className="mySwiper"
+                pagination={true}
+                modules={[EffectCoverflow, Navigation]}
                 ref={ref}
-                // effect={'coverflow'}
-                // grabCursor={true}
-                // centeredSlides={true}
-                // slidesPerView={'auto'}
-                // coverflowEffect={{
-                // rotate: 50,
-                // stretch: 0,
-                // depth: 100,
-                // modifier: 1,
-                // slideShadows: true,
-                // }}
-                // pagination={true}
-                // modules={[EffectCoverflow, Navigation]}
-                // ref={ref}
             >
                 {projects.map(( item , index) => (
                     <SwiperSlide key={index} 

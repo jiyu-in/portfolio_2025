@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { FlexCenter, GridBackground, TitleBox, TitleText, SubText } from '../style/Styled';
-import Project from "./Project_backup";
+import ProjectList from "./Project";
 
 const Root = styled.div`
     height: 100vh;
@@ -19,16 +19,6 @@ const Wrap = styled(FlexCenter)`
     }
 `;
 
-const TitleTextStyled = styled(TitleText)`
-  font-size: 5rem;
-  
-`;
-
-const SubTextStyled = styled(SubText)`
-  color:#fff;
-  font-size: 2rem;
-  
-`;
 
 
 function Portfolio() {
@@ -46,20 +36,19 @@ function Portfolio() {
       <Wrap>
         <GridBackground/>
         <TitleBox ref={ref}>
-          <TitleTextStyled
+          <TitleText
               style={{ opacity, scale }}
               transition={{ type: "spring", stiffness: 50, damping: 15 }} 
           >
-            Design + Publishing
-            {/* → */}
-          </TitleTextStyled>
-          <SubTextStyled  
+            실력으로 쌓은 중요 프로젝트를 소개합니다.
+          </TitleText>
+          {/* <SubText  
             style={{ opacity }}
               transition={{ type: "spring", stiffness: 50, damping: 15 }} >
-                실력으로 쌓은 중요 프로젝트를 소개합니다.
-          </SubTextStyled>
+                SI에서 쌓은 실력으로 가상화폐거래소, 비대면 교육관리까지의 중요 프로젝트를 소개합니다.
+          </SubText> */}
         </TitleBox>
-        <Project />
+        <ProjectList />
       </Wrap>
     </Root>
   );

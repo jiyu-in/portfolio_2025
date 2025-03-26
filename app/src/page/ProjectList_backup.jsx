@@ -10,13 +10,13 @@ const Root = styled(motion.div)`
     height: 100%;
     overflow:hidden;
     transition: all 0.5s ease;
-    /* &>img{
+    &>img{
         transform: scale(1);
         filter: opacity(0.6) brightness(0.5) blur(2px);
         border: 5px solid rgba(0, 0, 0, 0.5);
-        @media (max-width: 640px) {
+        /* @media (max-width: 640px) {
             display: none;
-        }
+        } */
     }
     &:hover, &:focus{
         transition: all 2s ease;
@@ -30,17 +30,20 @@ const Root = styled(motion.div)`
             display: flex;
             transition: all 2s ease;
         }
-    } */
+    }
 `;
-const BoxStyle = styled(FlexColumn)`
-    /* display: none; */
-    align-items: center;
-    padding: 40px;
-    border: 1px dashed #91afc0;
-    background: #0000007a;
+const Wrap = styled(FlexCenter)`
+    position: relative;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    padding:0 2.5rem;
+    margin-left:auto;
+    @media (max-width: 940px) {
+        width:80%;
+    }
     @media (max-width: 640px) {
-        max-width: 60vw ;
-        padding: 1rem;
+        padding:0 1em;
     }
 `;
 
@@ -85,9 +88,25 @@ const Skills = styled.div`
     }
 `;
 const BgImage = styled.img`
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 60%;
     height: 100%;
     object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.8);
+`;
+
+const VideoStyled = styled.video`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.5);
 `;
 
 const LinkBox = styled(FlexCenter)`
@@ -101,6 +120,8 @@ const Link = styled.a`
     padding: 0.5rem 1.5rem;
     background-color: #91afc0;
     margin-top: 20px;
+    /* border-bottom: 1px solid #91afc0; 
+     box-shadow: 1px 1px 12px #91afc0; */
     @media (max-width: 640px) {
         padding: 0.5rem;
     }
@@ -113,7 +134,17 @@ const LinkOutline = styled(Link)`
     /* box-shadow: 1px 1px 12px #91afc0;  */
 `;
 
-
+const BoxStyle = styled(FlexColumn)`
+    /* display: none; */
+    align-items: center;
+    padding: 40px;
+    border: 1px dashed #91afc0;
+    background: #0000007a;
+    @media (max-width: 640px) {
+        max-width: 60vw ;
+        padding: 1rem;
+    }
+`;
 
 
 function ProjectList({ title, date, skills, des, category, img, url, page, opacity, translateX }) {
@@ -129,6 +160,7 @@ function ProjectList({ title, date, skills, des, category, img, url, page, opaci
         // onClick={() => handleClick(url)}
     >
         <BgImage src={process.env.PUBLIC_URL + img} alt={title} />
+        <Wrap>
             <BoxStyle className="box">
                 <Category>
                 {category.map((item, index) => (
@@ -148,7 +180,7 @@ function ProjectList({ title, date, skills, des, category, img, url, page, opaci
                     {page && <LinkOutline href={page}> 사이트 보기</LinkOutline>}
                 </LinkBox>
             </BoxStyle>
-        
+        </Wrap>
     </Root>
     );
 }

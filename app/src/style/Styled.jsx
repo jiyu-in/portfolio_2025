@@ -73,7 +73,7 @@ export const TitleBox = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
     @media (max-width: 640px) {
         font-size: 2rem;
@@ -86,11 +86,11 @@ export const TitleText = styled(motion.span)`
 `;
 
 export const SubText = styled(motion.span)`
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 300;
     color:#858585;
     margin-top: 1rem;
     @media (max-width: 640px) {
-        font-size: 0.813rem;
+        font-size: 1rem;
     }
 `;
