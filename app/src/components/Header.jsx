@@ -22,9 +22,14 @@ const Logo = styled.div`
 
 
 function Header() {
-
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // 부드럽게 스크롤
+        });
+      };
 return (
-    <Logo><LogoDP/></Logo>
+    <Logo onClick={scrollToTop}><LogoDP/></Logo>
     );
 }
 

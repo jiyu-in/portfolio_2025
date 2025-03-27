@@ -168,11 +168,10 @@ return (
                 style={{ opacity, x }}
                 transition={{ type: "spring", stiffness: 50, damping: 15 }} 
                 ><Point>Adobe Photoshop</Point>부터 프로토타이핑이 가능한 <Point>Figma</Point>까지</motion.p>
-                 {/* 다양한 디자인 도구를 능숙하게 다루며, 웹 표준과 접근성을 고려한 시멘틱 */}
                 <motion.p
                 style={{ opacity, x }}
                 transition={{ type: "spring", stiffness: 50, damping: 15 }} 
-                > <Point>HTML/CSS </Point>마크업, <Point>React</Point> 프레임워크 환경에서 퍼블리싱 </motion.p>
+                > <Point>HTML/CSS </Point>마크업,<br/> <Point>React</Point> 프레임워크 환경에서 퍼블리싱 </motion.p>
                 </motion.div>
                 <ArrowBox>
                     <FlowerPoint/>

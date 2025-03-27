@@ -14,24 +14,24 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const isSmallScreen = useMediaQuery({ maxWidth: 767 });
   return (
-    // <AnimatePresence>
-    //   {isLoading ? (
-    //     <SplashScreen onFinish={() => setIsLoading(false)} />
-    //   ) : (
-    //     <div className="App">
-    //     <Cursor/>
-    //     <Header/>
-    //     <Main />
-    // </div>
-    //   )}
-    // </AnimatePresence>
-      <div className="App">
+    <AnimatePresence>
+      {isLoading ? (
+        <SplashScreen onFinish={() => setIsLoading(false)} />
+      ) : (
+        <div className="App">
         <Cursor/>
         <Header/>
         <Main />
-        {/* {!isSmallScreen && (<Footer className="footer" />) }
-        <CircleComponent/> */}
-      </div>
+    </div>
+      )}
+    </AnimatePresence>
+      // <div className="App">
+      //   <Cursor/>
+      //   <Header/>
+      //   <Main />
+      //   {!isSmallScreen && (<Footer className="footer" />) }
+      //   <CircleComponent/>
+      // </div>
   );
 }
 
