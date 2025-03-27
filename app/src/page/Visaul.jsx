@@ -2,11 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import styled from "styled-components";
 import Lottie from "lottie-react";
-import LottieGlobal from "../assets/lottie/AnimationObject.json";
-import AnimationFlower1 from "../assets/lottie/AnimationFlower1.json";
-import AnimationFlower2 from "../assets/lottie/AnimationFlower2.json";
 import AnimationFlower3 from "../assets/lottie/AnimationFlower3.json";
-import AnimationFlower4 from "../assets/lottie/AnimationFlower4.json";
 import { Dashed, Cuadrado, RelativeBox } from "../style/Styled";
 
 const Root = styled.div`
@@ -60,13 +56,16 @@ const Slogan = styled(motion.div)`
 
 const SubText = styled(motion.p)`
   width: 64%;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   color:#9aaab2;
   margin:3rem 0 0 1rem;
   word-break: keep-all;
   @media (max-width: 640px) {
-    font-size: 0.813rem;
+    font-size: 1rem;
     margin:1rem 0 0 0;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.875rem;
   }
 `;
 
@@ -187,12 +186,6 @@ function Visual() {
           </motion.div>
         </Wrap>
       </Container>
-      {/* <LottieBox>
-            <Lottie animationData={AnimationFlower1} loop={true} />
-            <Lottie animationData={AnimationFlower2} loop={true} />
-            <Lottie animationData={AnimationFlower3} loop={true} />
-            <Lottie animationData={AnimationFlower2} loop={true} />
-          </LottieBox> */}
     </Root>
   );
 }

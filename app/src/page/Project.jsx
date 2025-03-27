@@ -5,11 +5,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/free-mode';
-import { Keyboard, Navigation, Pagination, FreeMode } from 'swiper/modules';
+import 'swiper/css/scrollbar';
+import { Keyboard, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { motion, useScroll, useTransform } from "framer-motion";
 import ArrowRight from '../assets/images/ArrowRightIcon.svg';
 import ArrowLeft from '../assets/images/ArrowLeftIcon.svg';
+import FlowerPoint from '../assets/images/FlowArrow.svg';
 import data from '../data/data.json'; 
 
 
@@ -20,6 +21,7 @@ const Root = styled.div`
     & .swiper{
         width: calc(100vw - 48px);
         height: 60vh;
+        /* aspect-ratio: 16 / 9; */
         /* @media (max-width: 640px) {
             height: 480px;
         }
@@ -31,20 +33,18 @@ const Root = styled.div`
         align-items: center;
     }
     & .swiper-button-prev, .swiper-button-next{
+        background-image: url(${FlowerPoint});
         background-repeat: no-repeat;
         background-position: center center;
-        width: 48px;
-        height: 48px;
-        transform: rotate(90deg);
+        width: 64px;
+        height: 64px;
+        /* transform: rotate(90deg); */
         @media (max-width: 640px) {
             display: none;
         }
     }
-    & .swiper-button-prev{
-        background-image: url(${ArrowLeft});
-    }
     & .swiper-button-next{
-        background-image: url(${ArrowRight});
+        transform: rotate(180deg);
     } 
     & .swiper-button-prev:after, .swiper-button-next:after{
         font-size: 0;
@@ -59,6 +59,12 @@ const Root = styled.div`
         @media (max-width: 640px) {
             width: 100%;
         }
+    }
+    & .swiper-scrollbar{
+        background-color: #ffffff30;
+    }
+    & .swiper-scrollbar-drag{
+        background-color: #91afc0;
     }
 `;
 
@@ -81,29 +87,26 @@ function Project() {
     return (
         <Root>
             <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
-                freeMode={true}
-                pagination={{
-                clickable: true,
+                slidesPerView={1}
+                // spaceBetween={30}
+                centeredSlides={false}
+                slidesPerGroupSkip={1}
+                grabCursor={true}
+                keyboard={{
+                    enabled: true,
                 }}
-                modules={[FreeMode, Navigation]}
-                className="mySwiper"
+                breakpoints={{
+                    // 320: { slidesPerView: 1 },
+                    769: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                    },
+                    1024: { slidesPerView: 3 },
+                }}
+                scrollbar={true}
+                navigation={true}
+                modules={[Keyboard, Scrollbar, Navigation]}
                 ref={ref}
-                // effect={'coverflow'}
-                // grabCursor={true}
-                // centeredSlides={true}
-                // slidesPerView={'auto'}
-                // coverflowEffect={{
-                // rotate: 50,
-                // stretch: 0,
-                // depth: 100,
-                // modifier: 1,
-                // slideShadows: true,
-                // }}
-                // pagination={true}
-                // modules={[EffectCoverflow, Navigation]}
-                // ref={ref}
             >
                 {projects.map(( item , index) => (
                     <SwiperSlide key={index} 

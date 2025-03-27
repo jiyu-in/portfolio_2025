@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styled from "styled-components";
 import { FlexCenter, GridBackground, TitleBox, TitleText, SubText } from '../style/Styled';
-import Project from "./Project_backup";
+import Project from "./Project";
 
 const Root = styled.div`
     height: 100vh;
@@ -21,12 +21,16 @@ const Wrap = styled(FlexCenter)`
 
 const TitleTextStyled = styled(TitleText)`
   font-size: 5rem;
-  
+  @media (max-width: 640px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 2.25rem;
+  }
 `;
 
 const SubTextStyled = styled(SubText)`
-  color:#fff;
-  font-size: 2rem;
+  margin-top: 0;
   
 `;
 
@@ -50,13 +54,13 @@ function Portfolio() {
               style={{ opacity, scale }}
               transition={{ type: "spring", stiffness: 50, damping: 15 }} 
           >
-            Design + Publishing
+            My works
             {/* → */}
           </TitleTextStyled>
           <SubTextStyled  
             style={{ opacity }}
               transition={{ type: "spring", stiffness: 50, damping: 15 }} >
-                실력으로 쌓은 중요 프로젝트를 소개합니다.
+                실력으로 쌓은 중요 프로젝트 들여다보기
           </SubTextStyled>
         </TitleBox>
         <Project />
