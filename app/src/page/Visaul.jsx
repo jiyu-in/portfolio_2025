@@ -60,6 +60,7 @@ const SubText = styled(motion.p)`
   color:#9aaab2;
   margin:3rem 0 0 1rem;
   word-break: keep-all;
+  white-space: pre-line;
   @media (max-width: 640px) {
     font-size: 1rem;
     margin:1rem 0 0 0;

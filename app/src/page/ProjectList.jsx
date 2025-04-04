@@ -9,7 +9,8 @@ const Root = styled(motion.div)`
     width: 100%;
     height: 100%;
     overflow:hidden;
-    &:hover, &:focus{
+    touch-action: manipulation;
+    &:hover, &:focus, &:active{
         transition: all 1s ease;
         border-radius:  0 40px;
         &>img{

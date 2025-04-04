@@ -12,6 +12,7 @@ const Screen = styled.div`
   height: 100vh;
   background-color: #171717;
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
 `;
 
 const Slogan = styled.div`
